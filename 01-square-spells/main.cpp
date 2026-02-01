@@ -1,3 +1,4 @@
+#include <cmath>
 #include <functional>
 #include <iostream>
 
@@ -96,6 +97,63 @@ void solution_15() {
   });
 }
 
+void solution_16() {
+  std::cout << "16\n";
+  draw([](int x, int y) {
+    int y_ = N - 1 - y;
+    int offset = 10;
+    return (x > y - offset) && (y > x - offset) && (x > y_ - offset) &&
+           (x < y_ + offset);
+  });
+}
+
+void solution_17() {
+  std::cout << "17\n";
+  draw([](int x, int y) { return y/8. - 2.  > std::sin(x / 3.); });
+}
+
+void solution_18() {
+  std::cout << "18\n";
+  draw([](int x, int y) { return (x < 2 || y < 2) && (x + y > 0); });
+}
+
+void solution_19() {
+  std::cout << "19\n";
+  draw([](int x, int y) { return ((x == 0) || (y == 0) || (x == N-1) || (y == N-1)); });
+}
+
+void solution_20() {
+  std::cout << "20\n";
+  draw([](int x, int y) { return (x + y) % 2 == 0; });
+}
+
+void solution_21() {
+  std::cout << "21\n";
+  draw([](int x, int y) { return (x % (y + 1) == 0); });
+}
+
+void solution_22() {
+  std::cout << "22\n";
+  draw([](int x, int y) { return (x + y) % 3 == 0; });
+}
+
+void solution_23() {
+  std::cout << "23\n";
+  draw([](int x, int y) { return (x % 2 == 0) && (y % 3 == 0); });
+}
+
+void solution_24() {
+  std::cout << "24\n";
+  draw([](int x, int y) { 
+    int y_ = N -1 - y;
+    return (x == y) || (x == y_); });
+}
+
+void solution_25() {
+  std::cout << "25\n";
+  draw([](int x, int y) { return (x % 6 == 0) || (y % 6 == 0); });
+}
+
 int main() {
   solution_01();
   solution_02();
@@ -112,6 +170,16 @@ int main() {
   solution_13();
   solution_14();
   solution_15();
+  solution_16();
+  solution_17();
+  solution_18();
+  solution_19();
+  solution_20();
+  solution_21();
+  solution_22();
+  solution_23();
+  solution_24();
+  solution_25();
 
   return 0;
 }
