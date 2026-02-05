@@ -2,4 +2,6 @@
 
 # Задания
 
+## [02-happy-tickets](02-happy-tickets)
+Счастливые билеты
 
