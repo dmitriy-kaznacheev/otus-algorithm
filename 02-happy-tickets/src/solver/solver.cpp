@@ -1,5 +1,6 @@
 #include "solver/solver.h"
 #include <cassert>
+#include <numeric>
 #include <stdexcept>
 
 namespace solver {
@@ -11,24 +12,29 @@ HappyTickets::HappyTickets(long n) : n_{n} {
 }
 
 long HappyTickets::run() const {
-  assert((n_ >= 1) && (n_ <= 10));
+  Column column(block_size, 1);
 
-  // clang-format off
-  switch (n_) {
-    case 1: return 10;
-    case 2: return 670;
-    case 3: return 55252;
-    case 4: return 4816030;
-    case 5: return 432457640;
-    case 6: return 39581170420;
-    case 7: return 3671331273480;
-    case 8: return 343900019857310;
-    case 9: return 32458256583753952;
-    case 10: return 3081918923741896840;
+  for (int i = 1; i != n_; ++i) {
+    column = get_next_column(std::move(column));
   }
-  // clang-format on
 
-  return 0;
+  return std::transform_reduce(std::begin(column), std::end(column), 0l,
+                               std::plus{}, [](auto val) { return val * val; });
+}
+
+Column HappyTickets::get_next_column(Column prev_column) const {
+  Column column(prev_column.size() + block_size - 1, 0);
+  for (int i = 0; i != column.size(); ++i) {
+    long sum_inside_block{};
+    for (int j = 0; j != block_size; ++j) {
+      auto k{i - j};
+      if ((k >= 0) && (k < prev_column.size())) {
+        sum_inside_block += prev_column[k];
+      }
+    }
+    column[i] = sum_inside_block;
+  }
+  return column;
 }
 
 } // namespace solver
