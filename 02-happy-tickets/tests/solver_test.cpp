@@ -5,6 +5,7 @@
 #include <sstream>
 
 using namespace std::string_literals;
+using namespace std::string_view_literals;
 
 const auto DATA_PATH{"../tests/data/"s};
 using FilePaths = std::pair<std::string, std::string>;
@@ -17,22 +18,21 @@ FilePaths get_file_paths(int index) {
 
 std::optional<long> get_file_content(std::string file_path) {
   std::fstream f{file_path};
-  if (!f) {
+  long value;
+  if (f >> value) {
+    return value;
+  } else {
     return std::nullopt;
   }
-
-  long result;
-  f >> result;
-  return result;
 }
 
 template <typename T> void show_result(T actual, T expected, int test_index) {
   if (actual == expected) {
-    std::cout << "[ + ] test #" << test_index << ": " << actual << std::endl;
+    std::cout << "[ + ] test #"sv << test_index << ": "sv << actual << std::endl;
   } else {
-    std::cout << "[ - ] test #" << test_index << '\n'
-              << "  actual:   " << actual << '\n'
-              << "  expected: " << expected << std::endl;
+    std::cout << "[ - ] test #"sv << test_index << '\n'
+              << "  actual:   "sv << actual << '\n'
+              << "  expected: "sv << expected << std::endl;
   }
 }
 

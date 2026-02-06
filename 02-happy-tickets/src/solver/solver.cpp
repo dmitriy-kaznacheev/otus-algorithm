@@ -14,7 +14,7 @@ HappyTickets::HappyTickets(long n) : n_{n} {
 long HappyTickets::run() const {
   Column column(block_size, 1);
 
-  for (int i = 1; i != n_; ++i) {
+  for (int _ = 1; _ != n_; ++_) {
     column = get_next_column(std::move(column));
   }
 
