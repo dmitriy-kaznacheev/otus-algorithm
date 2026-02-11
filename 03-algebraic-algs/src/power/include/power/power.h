@@ -1,5 +1,3 @@
 #pragma once
 
-namespace power {
-
-} // namespace power
+namespace power {} // namespace power

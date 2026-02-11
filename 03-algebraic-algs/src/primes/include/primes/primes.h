@@ -1,5 +1,3 @@
 #pragma once
 
-namespace primes {
-
-} // namespace primes
+namespace primes {} // namespace primes

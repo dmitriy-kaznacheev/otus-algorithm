@@ -1,6 +1,4 @@
 #include "algebraic_test.h"
 #include "power/power.h"
 
-void power_test() {
-
-}
+void power_test() {}

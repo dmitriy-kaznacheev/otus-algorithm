@@ -1,5 +1,3 @@
 #include "fibo/fibo.h"
 
-namespace fibo {
-
-} // namespace fibo
+namespace fibo {} // namespace fibo

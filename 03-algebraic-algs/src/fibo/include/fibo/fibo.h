@@ -1,5 +1,3 @@
 #pragma once
 
-namespace fibo {
-
-} // namespace fibo
+namespace fibo {} // namespace fibo
