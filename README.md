@@ -5,3 +5,6 @@
 ## [01-square-spells](01-square-spells)
 Квадратные заклинания
 
+## [03-algebraic-algs](03-algebraic-algs)
+Алгебраические алгоритмы 
+
