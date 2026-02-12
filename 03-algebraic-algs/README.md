@@ -84,3 +84,46 @@
     ```
   </details>
 
+### Числа Фибоначчи
+
+* рекурсия
+* итерации
+* формула золотого сечения
+* возведение матрицы в степень
+
+  <br />
+  <details>
+    <summary>результаты тестов</summary>
+
+    ```
+    $ ./tests/algebraic_test
+    [ + ]       recursion_0: 737 ns
+    [ + ]       iterative_0: 151 ns
+    [ + ]    golden_ratio_0: 19830 ns
+    [ + ] matrix_multiply_0: 409 ns
+    [ + ]       recursion_1: 140 ns
+    [ + ]       iterative_1: 83 ns
+    [ + ]    golden_ratio_1: 6149 ns
+    [ + ] matrix_multiply_1: 557 ns
+    [ + ]       recursion_2: 126 ns
+    [ + ]       iterative_2: 127 ns
+    [ + ]    golden_ratio_2: 697 ns
+    [ + ] matrix_multiply_2: 1009 ns
+    [ + ]       recursion_3: 144 ns
+    [ + ]       iterative_3: 251 ns
+    [ + ]    golden_ratio_3: 393 ns
+    [ + ] matrix_multiply_3: 1186 ns
+    [ + ]       recursion_4: 159 ns
+    [ + ]       iterative_4: 210 ns
+    [ + ]    golden_ratio_4: 612 ns
+    [ + ] matrix_multiply_4: 1475 ns
+    [ + ]       recursion_5: 231 ns
+    [ + ]       iterative_5: 176 ns
+    [ + ]    golden_ratio_5: 399 ns
+    [ + ] matrix_multiply_5: 1344 ns
+    [ + ]       recursion_6: 1380 ns
+    [ + ]       iterative_6: 334 ns
+    [ + ]    golden_ratio_6: 437 ns
+    [ + ] matrix_multiply_6: 2023 ns
+    ```
+  </details>

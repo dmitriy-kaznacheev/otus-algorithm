@@ -47,7 +47,15 @@ get_file_content2(std::string file_path) {
 template <typename T>
 inline void show_result(T actual, T expected, int test_index,
                         size_t duration_ms, std::string_view test_name) {
-  if (std::abs(actual - expected) < 1e-6) {
+
+  bool is_equal = false;
+  if constexpr (std::is_floating_point_v<T>) {
+    is_equal = (std::abs(actual - expected) < 1e-6);
+  } else {
+    is_equal = (actual == expected);
+  }
+
+  if (is_equal) {
     std::cout << "[ + ] "sv << test_name << "_"sv << test_index << ": "sv
               << duration_ms << " ns"sv << std::endl;
   } else {
