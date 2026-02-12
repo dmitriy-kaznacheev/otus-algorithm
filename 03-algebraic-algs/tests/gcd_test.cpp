@@ -31,18 +31,20 @@ void gcd_test() {
 
   for (int i = 0;; ++i) {
     auto [ipath, opath] = get_file_paths("gcd"s, i);
-    auto in = get_file_content<long, 2>(std::move(ipath));
-    auto out = get_file_content<long, 1>(std::move(opath));
+    auto in = get_file_content2<long, long>(std::move(ipath));
+    auto out = get_file_content1<long>(std::move(opath));
 
     if (!in || !out) {
       break;
     }
 
     auto [a, b] = in.value();
-    auto [expected] = out.value();
+    auto expected = out.value();
 
     euclidean_sub_test(a, b, expected, i);
     euclidean_div_test(a, b, expected, i);
     binary_stein_test(a, b, expected, i);
   }
+
+  std::cout << std::endl;
 }

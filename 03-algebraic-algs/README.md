@@ -39,3 +39,48 @@
     ```
   </details>
 
+### Возведение числа в целую неотрицательную степень
+
+* обычные итерации
+* степень двойки с домножением
+* двоичное разложение показателя степени
+
+  <br />
+  <details>
+    <summary>результаты тестов</summary>
+
+    ```
+    $ ./tests/algebraic_test
+    [ + ] itr_pow_0: 197 ns
+    [ + ] two_pow_0: 92 ns
+    [ + ] bin_pow_0: 93 ns
+    [ + ] itr_pow_1: 33 ns
+    [ + ] two_pow_1: 34 ns
+    [ + ] bin_pow_1: 33 ns
+    [ + ] itr_pow_2: 2303 ns
+    [ + ] two_pow_2: 122 ns
+    [ + ] bin_pow_2: 100 ns
+    [ + ] itr_pow_3: 23583 ns
+    [ + ] two_pow_3: 108 ns
+    [ + ] bin_pow_3: 110 ns
+    [ + ] itr_pow_4: 228103 ns
+    [ + ] two_pow_4: 154 ns
+    [ + ] bin_pow_4: 143 ns
+    [ + ] itr_pow_5: 2213142 ns
+    [ + ] two_pow_5: 132 ns
+    [ + ] bin_pow_5: 162 ns
+    [ + ] itr_pow_6: 20941757 ns
+    [ + ] two_pow_6: 133 ns
+    [ + ] bin_pow_6: 146 ns
+    [ + ] itr_pow_7: 209163291 ns
+    [ + ] two_pow_7: 216 ns
+    [ + ] bin_pow_7: 191 ns
+    [ + ] itr_pow_8: 2093599930 ns
+    [ + ] two_pow_8: 213 ns
+    [ + ] bin_pow_8: 174 ns
+    [ + ] itr_pow_9: oo ns
+    [ + ] two_pow_9: 218 ns
+    [ + ] bin_pow_9: 164 ns
+    ```
+  </details>
+
