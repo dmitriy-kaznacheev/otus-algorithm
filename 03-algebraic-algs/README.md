@@ -127,3 +127,95 @@
     [ + ] matrix_multiply_6: 2023 ns
     ```
   </details>
+
+### Простые числа
+
+* простые алгоритмы:
+  * перебор делителей `prime_full`
+  * оптимизация: прекратить перебор если найден делитель `prime_break`
+  * оптимизация: поиск только нечётных делителей `prime_odd`
+  * оптимизация: поиск делителей до sqrt(n) `prime_sqrt`
+* решето Эратосфена:
+  * со сложностью O(n log(log n)) `sieve`
+  * с оптимизацией памяти (битовая матрица) `sieve_bit`
+  * со сложностью O(n) `sieve_fast`
+
+  <br />
+  <details>
+    <summary>результаты тестов</summary>
+
+    ```
+    $ ./tests/algebraic_test
+    [ + ]  prime_full_0: 1736 ns
+    [ + ] prime_break_0: 416 ns
+    [ + ]   prime_odd_0: 380 ns
+    [ + ]  prime_sqrt_0: 324 ns
+    [ + ]       sieve_0: 2468 ns
+    [ + ]   sieve_bit_0: 1203 ns
+    [ + ]  sieve_fast_0: 967 ns
+    [ + ]  prime_full_1: 91 ns
+    [ + ] prime_break_1: 74 ns
+    [ + ]   prime_odd_1: 71 ns
+    [ + ]  prime_sqrt_1: 86 ns
+    [ + ]       sieve_1: 298 ns
+    [ + ]   sieve_bit_1: 528 ns
+    [ + ]  sieve_fast_1: 329 ns
+    [ + ]  prime_full_2: 159 ns
+    [ + ] prime_break_2: 133 ns
+    [ + ]   prime_odd_2: 114 ns
+    [ + ]  prime_sqrt_2: 126 ns
+    [ + ]       sieve_2: 288 ns
+    [ + ]   sieve_bit_2: 516 ns
+    [ + ]  sieve_fast_2: 310 ns
+    [ + ]  prime_full_3: 213 ns
+    [ + ] prime_break_3: 176 ns
+    [ + ]   prime_odd_3: 132 ns
+    [ + ]  prime_sqrt_3: 165 ns
+    [ + ]       sieve_3: 269 ns
+    [ + ]   sieve_bit_3: 545 ns
+    [ + ]  sieve_fast_3: 374 ns
+    [ + ]  prime_full_4: 204 ns
+    [ + ] prime_break_4: 167 ns
+    [ + ]   prime_odd_4: 150 ns
+    [ + ]  prime_sqrt_4: 165 ns
+    [ + ]       sieve_4: 326 ns
+    [ + ]   sieve_bit_4: 501 ns
+    [ + ]  sieve_fast_4: 653 ns
+    [ + ]  prime_full_5: 251 ns
+    [ + ] prime_break_5: 304 ns
+    [ + ]   prime_odd_5: 196 ns
+    [ + ]  prime_sqrt_5: 161 ns
+    [ + ]       sieve_5: 286 ns
+    [ + ]   sieve_bit_5: 539 ns
+    [ + ]  sieve_fast_5: 429 ns
+    [ + ]  prime_full_6: 15220 ns
+    [ + ] prime_break_6: 3561 ns
+    [ + ]   prime_odd_6: 2705 ns
+    [ + ]  prime_sqrt_6: 2241 ns
+    [ + ]       sieve_6: 1636 ns
+    [ + ]   sieve_bit_6: 1479 ns
+    [ + ]  sieve_fast_6: 3468 ns
+    [ + ]  prime_full_7: 813317 ns
+    [ + ] prime_break_7: 127801 ns
+    [ + ]   prime_odd_7: 74533 ns
+    [ + ]  prime_sqrt_7: 18732 ns
+    [ + ]       sieve_7: 11922 ns
+    [ + ]   sieve_bit_7: 7937 ns
+    [ + ]  sieve_fast_7: 22644 ns
+    [ + ]  prime_full_8: 70261155 ns
+    [ + ] prime_break_8: 8230623 ns
+    [ + ]   prime_odd_8: 4163059 ns
+    [ + ]  prime_sqrt_8: 274354 ns
+    [ + ]       sieve_8: 117158 ns
+    [ + ]   sieve_bit_8: 47179 ns
+    [ + ]  sieve_fast_8: 213963 ns
+    [ + ]  prime_full_9: 6936299272 ns
+    [ + ] prime_break_9: 631449382 ns
+    [ + ]   prime_odd_9: 317486673 ns
+    [ + ]  prime_sqrt_9: 3458101 ns
+    [ + ]       sieve_9: 1126383 ns
+    [ + ]   sieve_bit_9: 715568 ns
+    [ + ]  sieve_fast_9: 1910726 ns
+    ```
+  </details>
+  
