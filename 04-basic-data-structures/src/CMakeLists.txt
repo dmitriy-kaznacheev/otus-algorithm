@@ -1,0 +1,3 @@
+add_subdirectory(dynamic_array)
+add_subdirectory(priority_queue)
+add_subdirectory(sparse_array)
