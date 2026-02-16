@@ -25,4 +25,16 @@
     ```
   </details>
 
+<br />
+  <details>
+    <summary>приоритетная очередь</summary>
+
+    ```
+    $ ./tests/basic_ds_test 
+  --- priorit queue tests ---
+  in: {10, 0} {15, 1} {20, 2} {25, 3} {30, 4} {35, 5} {40, 6} {45, 7} {50, 8} {55, 9} 
+  out: 9 8 7 6 5 4 3 2 1 0
+    ```
+  </details>
+
 

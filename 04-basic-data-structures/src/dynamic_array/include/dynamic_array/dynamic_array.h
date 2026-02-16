@@ -37,6 +37,7 @@ private:
 template <typename T, typename Buffer> class DynamicArray final {
 public:
   DynamicArray() : buf_{Buffer{}}, size_{0} {}
+  void add(T item) { add(std::move(item), size_); }
   void add(T item, size_t index) {
     if (size_ == buf_.capacity()) {
       buf_.realoc();
@@ -57,6 +58,9 @@ public:
     }
     os << '\n';
   }
+  T &operator[](size_t index) { return buf_[index]; }
+  const T &operator[](size_t index) const { return buf_[index]; }
+  size_t size() const { return size_; }
 
 private:
   Buffer buf_;
