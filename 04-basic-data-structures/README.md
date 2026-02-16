@@ -10,4 +10,19 @@
 Создать приоритетную очередь или разреженный массив.
 
 ## Решение
+<br />
+  <details>
+    <summary>динамические массивы</summary>
+
+    ```
+    $ ./tests/basic_ds_test 
+    --- dynamic array tests ---
+         n       +1       +100         x2
+       100:     104 us       6 us       9 us
+      1000:     857 us      50 us     203 us
+     10000:    8761 us     264 us     168 us
+    100000: 1958279 us   10610 us    1984 us
+    ```
+  </details>
+
 
