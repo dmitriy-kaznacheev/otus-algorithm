@@ -11,30 +11,40 @@
 
 ## Решение
 <br />
-  <details>
-    <summary>динамические массивы</summary>
+<details>
+  <summary>динамические массивы</summary>
 
-    ```
-    $ ./tests/basic_ds_test 
-    --- dynamic array tests ---
-         n       +1       +100         x2
-       100:     104 us       6 us       9 us
-      1000:     857 us      50 us     203 us
-     10000:    8761 us     264 us     168 us
-    100000: 1958279 us   10610 us    1984 us
-    ```
-  </details>
+  ```
+  $ ./tests/basic_ds_test 
+  --- dynamic array tests ---
+       n       +1       +100         x2
+     100:     104 us       6 us       9 us
+    1000:     857 us      50 us     203 us
+   10000:    8761 us     264 us     168 us
+  100000: 1958279 us   10610 us    1984 us
+  ```
+</details>
 
 <br />
-  <details>
-    <summary>приоритетная очередь</summary>
+<details>
+  <summary>приоритетная очередь</summary>
 
-    ```
-    $ ./tests/basic_ds_test 
+  ```
+  $ ./tests/basic_ds_test 
   --- priorit queue tests ---
   in: {10, 0} {15, 1} {20, 2} {25, 3} {30, 4} {35, 5} {40, 6} {45, 7} {50, 8} {55, 9} 
   out: 9 8 7 6 5 4 3 2 1 0
-    ```
-  </details>
+  ```
+</details>
 
+<br />
+<details>
+  <summary>неполный массив</summary>
 
+  ```
+  $ ./tests/basic_ds_test 
+  --- sparse  array tests ---
+  in: 0:5 3:10 6:15 9:20 
+  out: 0:5 1:x 2:x 3:10 4:x 5:x 6:15 7:x 8:x 9:20 10:x 11:x 12:x 13:x 14:x
+  ```
+</details>
