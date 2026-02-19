@@ -7,3 +7,6 @@
 
 ## [02-happy-tickets](02-happy-tickets)
 Счастливые билеты
+
+## [05-bitboard](05-bitboard)
+Шахматные биты
