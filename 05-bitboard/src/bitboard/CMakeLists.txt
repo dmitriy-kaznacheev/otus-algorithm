@@ -4,6 +4,7 @@ add_library(bitboard
   rook.cpp
   bishop.cpp
   queen.cpp
+  utils.cpp
 )
 
 target_include_directories(bitboard PUBLIC include)

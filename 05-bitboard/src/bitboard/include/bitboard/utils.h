@@ -3,10 +3,6 @@
 
 namespace bitboard {
 
-namespace rook {
-
-uint64_t get_bitmask(uint64_t pos);
-
-} // namespace rook
+uint64_t get_moves(uint64_t bitmask);
 
 } // namespace bitboard
