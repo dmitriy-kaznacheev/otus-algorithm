@@ -43,12 +43,12 @@ get_file_content2(std::string file_path) {
   }
 }
 
-template <typename T>
-inline void show_result(std::tuple<T, T> actual, std::tuple<T, T> expected,
+template <typename T1, typename T2>
+inline void show_result(std::tuple<T1, T2> actual, std::tuple<T1, T2> expected,
                         int test_index, size_t duration_ms) {
 
   bool is_equal = false;
-  if constexpr (std::is_floating_point_v<T>) {
+  if constexpr (std::is_floating_point_v<T1> || std::is_floating_point_v<T2>) {
     static_assert(false, "comparison for floating point is not implemented");
   } else {
     is_equal = (actual == expected);

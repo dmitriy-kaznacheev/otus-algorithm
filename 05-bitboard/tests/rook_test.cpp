@@ -11,7 +11,7 @@ void rook_main() {
   for (int i = 0;; ++i) {
     auto [ipath, opath] = get_file_paths("rook"s, i);
     auto in = get_file_content1<uint64_t>(std::move(ipath));
-    auto out = get_file_content2<uint64_t>(std::move(opath));
+    auto out = get_file_content2<int, uint64_t>(std::move(opath));
 
     if (!in || !out) {
       break;
