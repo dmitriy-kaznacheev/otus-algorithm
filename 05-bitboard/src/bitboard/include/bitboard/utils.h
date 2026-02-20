@@ -18,7 +18,7 @@ consteval bool get_bit(Bitboard bb, uint8_t bit) {
 }
 
 constexpr uint8_t abs_substract(uint8_t lhs, uint8_t rhs) {
-    return (lhs > rhs) ? (lhs - rhs) : (rhs - lhs);
+  return (lhs > rhs) ? (lhs - rhs) : (rhs - lhs);
 }
 
 } // namespace bitboard
