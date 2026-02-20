@@ -5,7 +5,7 @@ namespace bitboard {
 
 namespace rook {
 
-uint64_t get_bitmask(uint64_t pos) { return pos; }
+uint64_t get_bitmask(int pos) { return pos; }
 
 } // namespace rook
 

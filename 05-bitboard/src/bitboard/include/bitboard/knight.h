@@ -5,7 +5,7 @@ namespace bitboard {
 
 namespace knight {
 
-uint64_t get_bitmask(uint64_t pos);
+uint64_t get_bitmask(int pos);
 
 } // namespace knight
 

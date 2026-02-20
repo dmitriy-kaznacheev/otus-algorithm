@@ -10,7 +10,7 @@ void knight_main() {
 
   for (int i = 0;; ++i) {
     auto [ipath, opath] = get_file_paths("knight"s, i);
-    auto in = get_file_content1<uint64_t>(std::move(ipath));
+    auto in = get_file_content1<int>(std::move(ipath));
     auto out = get_file_content2<int, uint64_t>(std::move(opath));
 
     if (!in || !out) {
