@@ -7,3 +7,6 @@
 
 ## [02-happy-tickets](02-happy-tickets)
 Счастливые билеты
+
+## [03-algebraic-algs](03-algebraic-algs)
+Алгебраические алгоритмы 
