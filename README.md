@@ -16,3 +16,7 @@
 
 ## [05-bitboard](05-bitboard)
 Шахматные биты
+
+## [06-simple-sort](06-simple-sort)
+Простые алгоритмы сортировки (BubbleSort, InsertionSort, ShellSort)
+
