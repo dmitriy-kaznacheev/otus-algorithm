@@ -35,10 +35,10 @@ void test(Callable sort, std::string_view test_name,
 int main() {
   using namespace sort;
 
-  // test(bubble::sort<It<int>>, "bubble"sv, "random"sv);
-  // test(bubble::sort<It<int>>, "bubble"sv, "digits"sv);
-  // test(bubble::sort<It<int>>, "bubble"sv, "sorted"sv);
-  // test(bubble::sort<It<int>>, "bubble"sv, "revers"sv);
+  test(bubble::sort<It<int>>, "bubble"sv, "random"sv);
+  test(bubble::sort<It<int>>, "bubble"sv, "digits"sv);
+  test(bubble::sort<It<int>>, "bubble"sv, "sorted"sv);
+  test(bubble::sort<It<int>>, "bubble"sv, "revers"sv);
 
   // test(insertion::sort<It<int>>, "insertion"sv, "random"sv);
   // test(insertion::sort<It<int>>, "insertion"sv, "digits"sv);
