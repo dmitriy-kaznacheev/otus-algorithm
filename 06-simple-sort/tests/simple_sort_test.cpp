@@ -45,10 +45,10 @@ int main() {
   test(insertion::sort<It<int>>, "insertion"sv, "sorted"sv);
   test(insertion::sort<It<int>>, "insertion"sv, "revers"sv);
 
-  // test(shell::sort<It<int>>, "shell"sv, "random"sv);
-  // test(shell::sort<It<int>>, "shell"sv, "digits"sv);
-  // test(shell::sort<It<int>>, "shell"sv, "sorted"sv);
-  // test(shell::sort<It<int>>, "shell"sv, "revers"sv);
+  test(shell::sort<It<int>>, "shell"sv, "random"sv);
+  test(shell::sort<It<int>>, "shell"sv, "digits"sv);
+  test(shell::sort<It<int>>, "shell"sv, "sorted"sv);
+  test(shell::sort<It<int>>, "shell"sv, "revers"sv);
 
   return 0;
 }

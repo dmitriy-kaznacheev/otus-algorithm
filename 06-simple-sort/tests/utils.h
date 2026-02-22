@@ -21,7 +21,7 @@ inline FilePaths get_file_paths(std::string test_dir, int index) {
 }
 
 template <typename T>
-std::vector<T> read_vector(std::string file_path, size_t size = 0) {
+inline std::vector<T> read_vector(std::string file_path, size_t size = 0) {
   std::fstream f{file_path};
   if (!f.is_open()) {
     return {};
