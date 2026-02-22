@@ -40,10 +40,10 @@ int main() {
   test(bubble::sort<It<int>>, "bubble"sv, "sorted"sv);
   test(bubble::sort<It<int>>, "bubble"sv, "revers"sv);
 
-  // test(insertion::sort<It<int>>, "insertion"sv, "random"sv);
-  // test(insertion::sort<It<int>>, "insertion"sv, "digits"sv);
-  // test(insertion::sort<It<int>>, "insertion"sv, "sorted"sv);
-  // test(insertion::sort<It<int>>, "insertion"sv, "revers"sv);
+  test(insertion::sort<It<int>>, "insertion"sv, "random"sv);
+  test(insertion::sort<It<int>>, "insertion"sv, "digits"sv);
+  test(insertion::sort<It<int>>, "insertion"sv, "sorted"sv);
+  test(insertion::sort<It<int>>, "insertion"sv, "revers"sv);
 
   // test(shell::sort<It<int>>, "shell"sv, "random"sv);
   // test(shell::sort<It<int>>, "shell"sv, "digits"sv);
