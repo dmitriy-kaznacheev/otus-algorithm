@@ -10,7 +10,7 @@ void plus_1_test(size_t n) {
   Timer t;
   DynamicArray<int, LinearBuffer<int, 1>> arr;
   for (int i = 0; i != n; ++i) {
-    arr.add(i, i);
+    arr.add(i);
   }
   std::cout << std::setw(8) << t.duration_ns() << " us"sv;
 }
@@ -19,7 +19,7 @@ void plus_100_test(size_t n) {
   Timer t;
   DynamicArray<int, LinearBuffer<int, 100>> arr;
   for (int i = 0; i != n; ++i) {
-    arr.add(i, i);
+    arr.add(i);
   }
   std::cout << std::setw(8) << t.duration_ns() << " us"sv;
 }
@@ -28,7 +28,7 @@ void mult_2_test(size_t n) {
   Timer t;
   DynamicArray<int, LinearBuffer<int, 1, 2>> arr;
   for (int i = 0; i != n; ++i) {
-    arr.add(i, i);
+    arr.add(i);
   }
   std::cout << std::setw(8) << t.duration_ns() << " us"sv;
 }

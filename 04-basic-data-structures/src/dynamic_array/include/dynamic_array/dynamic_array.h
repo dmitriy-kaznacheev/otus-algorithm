@@ -19,7 +19,7 @@ public:
     std::swap(tmp, *this);
   }
   void shif_right(size_t index, size_t size) {
-    if (capacity_ < (size + 1)) {
+    if (capacity_ >= (size + 1)) {
       std::copy_backward(mem_.get() + index, mem_.get() + size,
                          mem_.get() + size + 1);
     }
