@@ -20,3 +20,6 @@
 ## [06-simple-sort](06-simple-sort)
 Простые алгоритмы сортировки (BubbleSort, InsertionSort, ShellSort)
 
+## [07-heap-sort](07-heap-sort)
+Пирамидальная сортировка
+
