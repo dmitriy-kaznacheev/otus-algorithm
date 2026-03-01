@@ -15,6 +15,21 @@ template <typename It> void sort(It first, It last) {
 }
 
 template <typename It>
+void sort_classic(It first, It last) {
+  for (It cur = first; cur != last; ++cur) {
+    It min_elem = cur;
+    for (It it = std::next(cur); it != last; ++it) {
+      if (*it < *min_elem) {
+        min_elem = it;
+      }
+    }
+    if (min_elem != cur) {
+      std::iter_swap(cur, min_elem);
+    }
+  }
+}
+
+template <typename It>
 void sort_with_gap(It first, It last,
                    typename std::iterator_traits<It>::difference_type gap) {
   for (auto i = first + gap; i < last; ++i) {
