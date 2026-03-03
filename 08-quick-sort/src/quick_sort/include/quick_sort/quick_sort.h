@@ -1,6 +1,7 @@
 #pragma once
 #include <algorithm>
 #include <iterator>
+#include <random>
 
 namespace sort {
 namespace quick {
@@ -10,8 +11,19 @@ template <typename It> struct Bound {
   It lhs, rhs;
 };
 
+template <typename It> It get_random_iterator(It first, It last) {
+  auto size = std::distance(first, last);
+  if (size == 0) {
+    return last;
+  }
+  static std::random_device rd{};
+  static std::mt19937 gen{rd()};
+  std::uniform_int_distribution<decltype(size)> dist(0, size - 1);
+  return std::next(first, dist(gen));
+}
+
 template <typename It> Bound<It> partition(It first, It last) {
-  auto pivot = *first; // TODO выбрать случайный элемент
+  auto pivot = *get_random_iterator(first, last);
   // clang-format off
   return {
     std::partition(first, last, [pivot](const auto &elem) { return (elem <  pivot); }),
