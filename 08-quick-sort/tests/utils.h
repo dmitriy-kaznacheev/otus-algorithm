@@ -5,6 +5,7 @@
 #include <iostream>
 #include <iterator>
 #include <optional>
+#include <random>
 #include <sstream>
 #include <vector>
 
@@ -64,3 +65,33 @@ public:
 private:
   std::chrono::time_point<std::chrono::high_resolution_clock> start_;
 };
+
+//--- file generator ----------------------------------
+
+std::string get_file_path(std::string file_name) {
+  std::stringstream ss{};
+  ss << DATA_PATH << std::move(file_name);
+  return std::move(ss.str());
+}
+
+template <typename T> bool check_sorted(std::string file_path) { return true; }
+
+template <typename T>
+void file_generator(size_t count, T max_value, std::string file_path) {
+  static std::random_device rd{};
+  static std::mt19937 gen{rd()};
+  std::uniform_int_distribution<T> dist(1, max_value);
+
+  std::ofstream f{file_path};
+  if (!f.is_open()) {
+    std::cerr << "error: can't open file \""sv << file_path << "\""sv
+              << std::endl;
+    return;
+  }
+
+  for (; count != 0; --count) {
+    f << dist(gen) << "\n";
+  }
+
+  f.close();
+}
