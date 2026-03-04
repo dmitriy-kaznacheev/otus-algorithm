@@ -24,5 +24,5 @@
 Пирамидальная сортировка
 
 ## [08-quick-sort](08-quick-sort)
-Быстрая и внешняя сортировки
+Быстрые алгоритмы сортировки (QuickSort, MergeSort, ExternalSort)
 
