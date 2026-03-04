@@ -23,3 +23,6 @@
 ## [07-heap-sort](07-heap-sort)
 Пирамидальная сортировка
 
+## [08-quick-sort](08-quick-sort)
+Быстрые алгоритмы сортировки (QuickSort, MergeSort, ExternalSort)
+
