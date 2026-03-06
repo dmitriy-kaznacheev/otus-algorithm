@@ -1,5 +1,6 @@
 #pragma once
 #include <chrono>
+#include <filesystem>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -72,3 +73,5 @@ template <typename T> std::vector<T> read_file(std::string file_path) {
 
   return v;
 }
+
+void remove_file(std::string file_path) { std::filesystem::remove(file_path); }
