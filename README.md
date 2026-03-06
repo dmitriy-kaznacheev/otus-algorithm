@@ -26,3 +26,6 @@
 ## [08-quick-sort](08-quick-sort)
 Быстрые алгоритмы сортировки (QuickSort, MergeSort, ExternalSort)
 
+## [09-linear-sort](09-linear-sort)
+Линейные алгоритмы сортировки (CountingSort, RadixSort, BucketSort)
+
