@@ -66,7 +66,7 @@ void sort(std::string ifpath, std::string ofpath, size_t chunk_size) {
   }
 
   {
-    std::priority_queue<Value<T>> pq;
+    std::priority_queue<Value<T>, std::vector<Value<T>>, std::greater<Value<T>>> pq;
     std::vector<std::ifstream> chunk_files(chunk_count);
 
     for (size_t i = 0; i != chunk_count; ++i) {

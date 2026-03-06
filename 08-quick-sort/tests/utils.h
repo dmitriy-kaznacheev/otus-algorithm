@@ -74,7 +74,19 @@ std::string get_file_path(std::string file_name) {
   return std::move(ss.str());
 }
 
-template <typename T> bool check_sorted(std::string file_path) { return true; }
+template <typename T> bool check_sorted(std::string file_path) {
+  std::ifstream f{file_path};
+  std::optional<T> prev;
+  T cur;
+
+  while (f >> cur) {
+    if (prev.has_value() && (cur < prev.value())) {
+      return false;
+    }
+    prev = cur;
+  }
+  return true;
+}
 
 template <typename T>
 void file_generator(size_t count, T max_value, std::string file_path) {
