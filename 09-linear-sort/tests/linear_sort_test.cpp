@@ -22,14 +22,14 @@ void test(Callable sort, std::string file_path, std::string_view test_name) {
   // clang-format off
   std::cout << (is_sorted ? "[ + ]"sv : "[ - ]"sv) 
             << std::setw(7) << test_name << ": "sv 
-            << data.size() << " "sv << duration << " us"sv
+            << data.size() << " "sv << duration << " sec."sv
             << std::endl;
   // clang-format on
 }
 
 int main() {
   const auto file_path{"./data.bin"s};
-  const size_t size{1'000'000'000};
+  const size_t size{100'000'000};
 
   using value_type = unsigned short;
   using it_type = It<value_type>;

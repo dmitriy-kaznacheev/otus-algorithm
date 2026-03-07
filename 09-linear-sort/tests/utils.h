@@ -21,7 +21,7 @@ public:
   size_t duration() {
     using namespace std::chrono;
     auto end_time = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(end_time - start_);
+    auto duration = duration_cast<seconds>(end_time - start_);
     return duration.count();
   }
 
