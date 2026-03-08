@@ -19,8 +19,11 @@
     <summary>результаты тестов</summary>
 
   ```
-    $ ./tests/linear_sort_test
-    
+    $ ./tests/linear_sort_test 
+    [ + ] generate file: 2 sec.
+    [ + ] bucket: 100000000 57 sec.
+    [ + ]  count: 100000000 4 sec.
+    [ + ]  radix: 100000000 11 sec.
     
   ```
 
