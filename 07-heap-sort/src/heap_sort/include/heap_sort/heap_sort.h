@@ -4,7 +4,7 @@
 namespace sort {
 namespace heap {
 
-namespace {
+namespace detail {
 template <typename It> void sift_down(It first, It last, It current) {
   auto size = std::distance(first, last);
   auto cur_index = std::distance(first, current);
@@ -23,9 +23,10 @@ template <typename It> void sift_down(It first, It last, It current) {
     sift_down(first, last, first + largest_index);
   }
 }
-} // namespace
+} // namespace detail
 
 template <typename It> void sort(It first, It last) {
+  using namespace detail;
   auto size = std::distance(first, last);
   auto half_size = size / 2;
 
