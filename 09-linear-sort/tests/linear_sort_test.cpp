@@ -34,13 +34,20 @@ int main() {
   using value_type = unsigned short;
   using it_type = It<value_type>;
 
-  generate_file<value_type>(size, file_path);
+  {
+    Timer t;
+    generate_file<value_type>(size, file_path);
+    std::cout << "[ + ] generate file"sv << ": "sv << t.duration() << " sec."sv
+              << std::endl;
+  }
+
   {
     using namespace sort;
     test<value_type>(bucket::sort<it_type>, file_path, "bucket"sv);
     test<value_type>(counting::sort<it_type>, file_path, "count"sv);
     test<value_type>(radix::sort<it_type>, file_path, "radix"sv);
   }
+
   remove_file(file_path);
 
   return 0;
