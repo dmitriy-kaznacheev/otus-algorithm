@@ -6,7 +6,7 @@
 namespace sort {
 namespace quick {
 
-namespace {
+namespace detail {
 template <typename It> struct Bound {
   It lhs, rhs;
 };
@@ -31,9 +31,10 @@ template <typename It> Bound<It> partition(It first, It last) {
   };
   // clang-format on
 }
-} // namespace
+} // namespace detail
 
 template <typename It> void sort(It first, It last) {
+  using namespace detail;
   if (first != last) {
     auto bound = partition(first, last);
     quick::sort(first, bound.lhs);

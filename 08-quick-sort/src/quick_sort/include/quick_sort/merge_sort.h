@@ -6,7 +6,7 @@
 namespace sort {
 namespace merge {
 
-namespace {
+namespace detail {
 template <typename It> void merge_ranges(It first, It middle, It last) {
   using value_type = typename std::iterator_traits<It>::value_type;
   auto size = std::distance(first, last);
@@ -15,9 +15,10 @@ template <typename It> void merge_ranges(It first, It middle, It last) {
   std::merge(first, middle, middle, last, std::begin(temp));
   std::move(std::begin(temp), std::end(temp), first);
 }
-} // namespace
+} // namespace detail
 
 template <typename It> void sort(It first, It last) {
+  using namespace detail;
   auto size = std::distance(first, last);
   if (size <= 1) {
     return;

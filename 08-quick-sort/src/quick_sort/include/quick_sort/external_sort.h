@@ -10,7 +10,7 @@
 namespace sort {
 namespace external {
 
-namespace {
+namespace detail {
 using namespace std::string_literals;
 using namespace std::string_view_literals;
 
@@ -43,12 +43,13 @@ template <typename It> void sort_chunk(It first, It last, size_t chunk_number) {
   merge::sort(first, last);
   save_chunk<It>(first, last, chunk_number);
 }
-} // namespace
+} // namespace detail
 
 template <typename T>
 void sort(std::string ifpath, std::string ofpath, size_t chunk_size) {
+  using namespace detail;
   size_t chunk_count{};
-
+  
   {
     std::vector<T> chunk;
     chunk.reserve(chunk_size);
