@@ -24,6 +24,15 @@
 
   ```
     $ ./tests/bst_test 
+    --- binary search tree [increasing] ---
+    [ + ] insert:    25000 49s
+    [ + ] search:     2500 0s
+    [ + ] remove:     2500 5s
+
+    --- binary search tree [random] ---
+    [ + ] insert: 10000000 55s
+    [ + ] search:  1000000 1s
+    [ + ] remove:  1000000 5s
     
   ```
 
