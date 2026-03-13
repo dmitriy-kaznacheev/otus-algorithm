@@ -29,3 +29,6 @@
 ## [09-linear-sort](09-linear-sort)
 Линейные алгоритмы сортировки (CountingSort, RadixSort, BucketSort)
 
+## [10-binary-search-trees](10-binary-search-trees)
+Двоичное дерево поиска, АВЛ и Декартово дерево
+
