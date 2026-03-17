@@ -27,12 +27,26 @@
     --- binary search tree [increasing] ---
     [ + ] insert:    25000 49s
     [ + ] search:     2500 0s
-    [ + ] remove:     2500 5s
+    [ + ] remove:     2500 4s
 
     --- binary search tree [random] ---
-    [ + ] insert: 10000000 55s
+    [ + ] insert: 10000000 57s
     [ + ] search:  1000000 1s
-    [ + ] remove:  1000000 5s
+    [ + ] remove:  1000000 6s
+
+    --- avl binary search tree [increasing] ---
+    [ + ] insert: 10000000 59s
+    [ + ] is balanced before
+    [ + ] search:  1000000 1s
+    [ + ] remove:  1000000 7s
+    [ + ] is balanced after
+
+    --- avl binary search tree [random] ---
+    [ + ] insert: 10000000 79s
+    [ + ] is balanced before
+    [ + ] search:  1000000 1s
+    [ + ] remove:  1000000 8s
+    [ + ] is balanced after
     
   ```
 
