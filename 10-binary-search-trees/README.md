@@ -25,27 +25,41 @@
   ```
     $ ./tests/bst_test 
     --- binary search tree [increasing] ---
-    [ + ] insert:    25000 49s
+    [ + ] insert:    25000 50s
     [ + ] search:     2500 0s
     [ + ] remove:     2500 4s
 
     --- binary search tree [random] ---
-    [ + ] insert: 10000000 57s
+    [ + ] insert: 10000000 60s
     [ + ] search:  1000000 1s
-    [ + ] remove:  1000000 6s
+    [ + ] remove:  1000000 5s
 
     --- avl binary search tree [increasing] ---
     [ + ] insert: 10000000 59s
     [ + ] is balanced before
     [ + ] search:  1000000 1s
-    [ + ] remove:  1000000 7s
+    [ + ] remove:  1000000 6s
     [ + ] is balanced after
 
     --- avl binary search tree [random] ---
-    [ + ] insert: 10000000 79s
+    [ + ] insert: 10000000 75s
     [ + ] is balanced before
     [ + ] search:  1000000 1s
     [ + ] remove:  1000000 8s
+    [ + ] is balanced after
+
+    --- treap binary search tree [increasing] ---
+    [ + ] insert: 10000000 71s
+    [ + ] is balanced before
+    [ + ] search:  1000000 2s
+    [ + ] remove:  1000000 7s
+    [ + ] is balanced after
+
+    --- treap binary search tree [random] ---
+    [ + ] insert: 10000000 176s
+    [ + ] is balanced before
+    [ + ] search:  1000000 3s
+    [ + ] remove:  1000000 7s
     [ + ] is balanced after
     
   ```

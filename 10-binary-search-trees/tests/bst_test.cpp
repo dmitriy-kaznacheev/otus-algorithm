@@ -4,7 +4,7 @@
 #include <bst/bst.h>
 #include <bst/treap.h>
 
-using value_type = int;
+using value_type = long;
 
 template <typename Tree, typename It>
 size_t insert(Tree &tree, It first, It last) {
@@ -135,6 +135,48 @@ template <typename It>
 void treap_test(It first, It last, std::string_view seq_type) {
   std::cout << "--- treap binary search tree ["sv << seq_type << "] ---\n"sv;
 
+  using namespace tree::treap;
+  Treap<value_type> treap;
+  auto size = std::distance(first, last);
+
+  {
+    std::set<value_type> expected(first, last);
+    auto duration = insert(treap, first, last);
+    bool result = check(treap, expected.begin(), expected.end());
+    show_result(result, duration, size, "insert"sv);
+  }
+
+  {
+    bool is_treap = treap.is_treap();
+    std::cout << (is_treap ? "[ + ] "sv : "[ - ] "sv)
+              << "is balanced before\n"sv;
+  }
+
+  {
+    auto rnd_items = choose_random_items(first, last, size / 10);
+    auto [result, duration] = search(treap, rnd_items.begin(), rnd_items.end());
+    show_result(result, duration, rnd_items.size(), "search"sv);
+  }
+
+  {
+    auto rnd_items = choose_random_items(first, last, size / 10);
+    std::set<value_type> expected(first, last);
+    {
+      for (auto value : rnd_items) {
+        expected.erase(value);
+      }
+    }
+    auto duration = remove(treap, rnd_items.begin(), rnd_items.end());
+    bool result = check(treap, expected.begin(), expected.end());
+    show_result(result, duration, rnd_items.size(), "remove"sv);
+  }
+
+  {
+    bool is_treap = treap.is_treap();
+    std::cout << (is_treap ? "[ + ] "sv : "[ - ] "sv)
+              << "is balanced after\n"sv;
+  }
+
   std::cout << std::endl;
 }
 
@@ -149,10 +191,8 @@ int main() {
   avl_test(std::begin(inc_seq_big), std::end(inc_seq_big), "increasing"sv);
   avl_test(std::begin(rnd_seq_big), std::end(rnd_seq_big), "random"sv);
 
-#if 0
   treap_test(std::begin(inc_seq_big), std::end(inc_seq_big), "increasing"sv);
   treap_test(std::begin(rnd_seq_big), std::end(rnd_seq_big), "random"sv);
-#endif
 
   return 0;
 }

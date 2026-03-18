@@ -10,6 +10,9 @@
 using namespace std::string_literals;
 using namespace std::string_view_literals;
 
+static std::random_device rd;
+static std::mt19937 gen{rd()};
+
 //--- timer -----------------------------------------------
 
 class Timer {
@@ -30,9 +33,6 @@ private:
 
 template <typename It, typename T = std::iterator_traits<It>::value_type>
 std::vector<T> choose_random_items(It first, It last, size_t size) {
-  static std::random_device rd;
-  std::mt19937 gen{rd()};
-
   std::vector<T> v(first, last);
   std::shuffle(v.begin(), v.end(), gen);
   v.resize(size);
@@ -42,13 +42,11 @@ std::vector<T> choose_random_items(It first, It last, size_t size) {
 template <typename T>
 std::vector<T> gen_random(size_t size, T min = std::numeric_limits<T>::min(),
                           T max = std::numeric_limits<T>::max()) {
-  static std::random_device rd;
-  std::mt19937 mt{rd()};
-  std::uniform_int_distribution<T> dist(min, max);
-  auto gen = [&]() { return dist(mt); };
+  static std::uniform_int_distribution<T> dist(min, max);
+  auto gen_ = [&]() { return dist(gen); };
 
   std::vector<T> v(size);
-  std::generate(v.begin(), v.end(), gen);
+  std::generate(v.begin(), v.end(), gen_);
   return v;
 }
 
