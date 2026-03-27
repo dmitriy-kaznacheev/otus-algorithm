@@ -35,3 +35,6 @@
 ## [11-balanced-trees](10-binary-search-trees)
 Сбалансированные деревья поиска: АВЛ и Декартово дерево
 
+## [12-hash-tables](12-hash-tables)
+Хеш-таблицы
+
