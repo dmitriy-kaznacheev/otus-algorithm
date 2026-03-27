@@ -18,6 +18,12 @@
 
   ```
     $ ./tests/ht_test 
+    --- hash table [chain] ---
+    [ + ]     insert: 1000000 18s
+    [ + ] get before: 1000000 18s
+    [ + ]     rehash: 1000000 0s
+    [ + ]  get after: 1000000 0s
+    [ + ]     remove: 1000000 0s
     
   ```
 
