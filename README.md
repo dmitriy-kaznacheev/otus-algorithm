@@ -30,5 +30,8 @@
 Линейные алгоритмы сортировки (CountingSort, RadixSort, BucketSort)
 
 ## [10-binary-search-trees](10-binary-search-trees)
-Двоичное дерево поиска, АВЛ и Декартово дерево
+Двоичное дерево поиска
+
+## [11-balanced-trees](10-binary-search-trees)
+Сбалансированные деревья поиска: АВЛ и Декартово дерево
 
