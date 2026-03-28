@@ -24,6 +24,13 @@
     [ + ]     rehash: 1000000 0s
     [ + ]  get after: 1000000 0s
     [ + ]     remove: 1000000 0s
+
+    --- hash table [opena] ---
+    [ + ]     insert: 1000000 0s
+    [ + ] get before: 1000000 0s
+    [ + ]     rehash: 1000000 0s
+    [ + ]  get after: 1000000 0s
+    [ + ]     remove: 1000000 0s
     
   ```
 

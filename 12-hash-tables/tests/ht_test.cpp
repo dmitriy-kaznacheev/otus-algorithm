@@ -100,7 +100,7 @@ int main() {
   using namespace hash;
 
   test<chain::Table<size_t, int>>("chain"sv);
-  // test(std::move(ht_opena), v.begin(), v.end(), "opena"sv);
+  test<opena::Table<size_t, int>>("opena"sv);
 
   return 0;
 }
