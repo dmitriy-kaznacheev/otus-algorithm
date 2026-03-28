@@ -22,7 +22,7 @@ template <typename K, typename V> class Table final {
 public:
   explicit Table(size_t size = 13) : capacity_{size} { buckets_.resize(size); }
 
-  void insert(K key, V value) {
+  bool insert(K key, V value) {
     auto cur_node = find(key).curr;
     if (cur_node) {
       cur_node->value = std::move(value);
@@ -31,8 +31,10 @@ public:
       auto new_node = std::make_unique<Node>(std::move(key), std::move(value),
                                              std::move(buckets_[index]));
       buckets_[index] = std::move(new_node);
+      ++size_;
     }
-    ++size_;
+
+    return true;
   }
 
   std::optional<V> get(const K &key) const {
@@ -93,7 +95,6 @@ private:
   }
 
   size_t get_index(const K &key) const {
-    // TODO(dk): заменить на свою реализацию хэш-функции
     return std::hash<K>{}(key) % capacity_;
   }
 

@@ -11,7 +11,10 @@ std::pair<bool, size_t> insert(HT &ht, It first, It last) {
   {
     Timer t;
     for (auto it = first; it != last; ++it) {
-      ht.insert(index++, *it);
+      result = ht.insert(index++, *it);
+      if (!result) {
+        break;
+      }
     }
     duration = t.duration();
   }
