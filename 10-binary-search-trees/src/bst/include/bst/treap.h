@@ -99,7 +99,7 @@ private:
 private:
   std::unique_ptr<Node> insert(std::unique_ptr<Node> node, T value) {
     if (search(node.get(), value)) {
-      return nullptr;
+      return node;
     }
     auto treap = split(std::move(node), value);
     auto new_node = std::make_unique<Node>(value);
