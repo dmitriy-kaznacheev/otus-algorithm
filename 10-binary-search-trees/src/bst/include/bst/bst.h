@@ -52,7 +52,7 @@ private:
         return std::move(node->left);
       } else {
         Node *temp = find_min(node->right.get());
-        node->data = temp->data;
+        node->data = std::move(temp->data);
         node->right = remove(std::move(node->right), temp->data);
       }
     }
