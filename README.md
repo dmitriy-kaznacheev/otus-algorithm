@@ -30,10 +30,10 @@
 Линейные алгоритмы сортировки (CountingSort, RadixSort, BucketSort)
 
 ## [10-binary-search-trees](10-binary-search-trees)
-Двоичное дерево поиска
+Двоичное дерево поиска (BST) и сбалансированные деревья поиска: АВЛ и Декартово (Treap)
 
-## [11-balanced-trees](10-binary-search-trees)
-Сбалансированные деревья поиска: АВЛ и Декартово дерево
+## [11-optimal-bst](11-optimal-bst)
+Оптимальные деревья поиска: Адаптивное (Splay) и Рандомизированное (Randomized)
 
 ## [12-hash-tables](12-hash-tables)
 Хеш-таблицы
