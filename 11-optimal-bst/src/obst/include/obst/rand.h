@@ -45,7 +45,7 @@ public:
     return is_valid_bst_helper(root_.get(), nullptr, nullptr);
   }
 
-  ~Rand() = default;
+  ~Rand() { clear(); }
 
 private:
   bool is_valid_bst_helper(const Node *node, const T *min_val,
@@ -183,6 +183,28 @@ private:
   static std::mt19937 &gen() {
     static std::mt19937 gen{std::random_device{}()};
     return gen;
+  }
+
+  void clear() {
+    if (!root_) {
+      return;
+    }
+
+    std::vector<std::unique_ptr<Node>> stack;
+    stack.push_back(std::move(root_));
+
+    while (!stack.empty()) {
+      auto curr = std::move(stack.back());
+      stack.pop_back();
+
+      if (curr->left) {
+        stack.push_back(std::move(curr->left));
+      }
+
+      if (curr->right) {
+        stack.push_back(std::move(curr->right));
+      }
+    }
   }
 
 private:
