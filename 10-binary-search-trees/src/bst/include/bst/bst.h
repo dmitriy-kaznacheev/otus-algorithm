@@ -20,7 +20,7 @@ public:
     inorder_traverse(root_.get(), visit);
   };
 
-  ~BST() = default;
+  ~BST() { clear(); }
 
 private:
   std::unique_ptr<Node> insert(std::unique_ptr<Node> node, T value) {
@@ -87,6 +87,28 @@ private:
       node = node->left.get();
     }
     return node;
+  }
+
+  void clear() {
+    if (!root_) {
+      return;
+    }
+
+    std::vector<std::unique_ptr<Node>> stack;
+    stack.push_back(std::move(root_));
+
+    while (!stack.empty()) {
+      auto curr = std::move(stack.back());
+      stack.pop_back();
+
+      if (curr->left) {
+        stack.push_back(std::move(curr->left));
+      }
+
+      if (curr->right) {
+        stack.push_back(std::move(curr->right));
+      }
+    }
   }
 
 private:

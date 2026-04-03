@@ -44,7 +44,7 @@ public:
     return is_valid(root_.get(), min_value, max_value, detail::max_priority);
   }
 
-  ~Treap() = default;
+  ~Treap() { clear(); }
 
 private:
   SplitTreap split(std::unique_ptr<Node> node, T value) {
@@ -155,6 +155,28 @@ private:
 
   bool is_equal(const T &lhs, const T &rhs) const {
     return !is_less(lhs, rhs) && !is_less(rhs, lhs);
+  }
+
+  void clear() {
+    if (!root_) {
+      return;
+    }
+
+    std::vector<std::unique_ptr<Node>> stack;
+    stack.push_back(std::move(root_));
+
+    while (!stack.empty()) {
+      auto curr = std::move(stack.back());
+      stack.pop_back();
+
+      if (curr->left) {
+        stack.push_back(std::move(curr->left));
+      }
+
+      if (curr->right) {
+        stack.push_back(std::move(curr->right));
+      }
+    }
   }
 
 private:
