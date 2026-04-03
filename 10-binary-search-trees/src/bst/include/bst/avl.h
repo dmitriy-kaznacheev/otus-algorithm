@@ -22,7 +22,7 @@ public:
   };
   bool is_avl() const { return (check_balance(root_.get()) != -1); }
 
-  ~AVL() = default;
+  ~AVL() { clear(); }
 
 private:
   int get_height(Node *node) const { return node ? node->height : 0; }
@@ -173,6 +173,28 @@ private:
       node = node->left.get();
     }
     return node;
+  }
+
+  void clear() {
+    if (!root_) {
+      return;
+    }
+
+    std::vector<std::unique_ptr<Node>> stack;
+    stack.push_back(std::move(root_));
+
+    while (!stack.empty()) {
+      auto curr = std::move(stack.back());
+      stack.pop_back();
+
+      if (curr->left) {
+        stack.push_back(std::move(curr->left));
+      }
+
+      if (curr->right) {
+        stack.push_back(std::move(curr->right));
+      }
+    }
   }
 
 private:
