@@ -107,7 +107,7 @@ public:
     return is_valid_bst_helper(root_, nullptr, nullptr);
   }
 
-  ~Splay() = default;
+  ~Splay() { clear(); }
 
 private:
   bool is_valid_bst_helper(std::shared_ptr<Node> node, const T *min_val,
@@ -221,6 +221,30 @@ private:
     inorder_traverse(node->left, visit);
     visit(node->data);
     inorder_traverse(node->right, visit);
+  }
+
+  void clear() {
+    if (!root_) {
+      return;
+    }
+
+    std::vector<std::shared_ptr<Node>> stack;
+    stack.push_back(std::move(root_));
+
+    while (!stack.empty()) {
+      auto curr = std::move(stack.back());
+      stack.pop_back();
+
+      curr->parent.reset();
+
+      if (curr->left) {
+        stack.push_back(std::move(curr->left));
+      }
+
+      if (curr->right) {
+        stack.push_back(std::move(curr->right));
+      }
+    }
   }
 
 private:
