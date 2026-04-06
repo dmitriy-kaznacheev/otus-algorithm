@@ -30,7 +30,7 @@ std::pair<bool, size_t> get(HT &ht, It first, It last) {
     Timer t;
     for (auto it = first; it != last; ++it) {
       auto value = ht.get(index++);
-      if (value != *it) {
+      if (!value || *value != *it) {
         result = false;
         break;
       }
