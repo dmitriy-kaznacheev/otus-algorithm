@@ -18,26 +18,50 @@ public:
   explicit Table(size_t size = 13) : capacity_{size} { table_.resize(size); }
 
   bool insert(K key, V value) {
-    if (size_ > (capacity_ / 2)) {
+    if (capacity_ < (size_ * 2)) {
       rehash();
     }
 
     auto h = hash(key);
+    std::optional<size_t> first_deleted{};
+
     for (size_t i = 0; i != capacity_; ++i) {
       size_t index = (h + i * i) % capacity_;
 
-      if (!table_[index] || (table_[index]->state != State::Occupied)) {
-        table_[index] = std::make_unique<Entry>(
-            std::move(key), std::move(value), State::Occupied);
-        ++size_;
-        return true;
+      // инициализировать ячейку, если нужно
+      if (!table_[index]) {
+        table_[index] = std::make_unique<Entry>();
       }
 
+      // запомнить первую Deleted‑ячейку
+      if (!first_deleted && (table_[index]->state == State::Deleted)) {
+        first_deleted = index;
+      }
+
+      // если найден ключ в Occupied - заменить значение
       if ((table_[index]->key == key) &&
-          (table_[index]->state != State::Occupied)) {
+          (table_[index]->state == State::Occupied)) {
         table_[index]->value = std::move(value);
         return true;
       }
+
+      // вставить в пустую ячейку
+      if (table_[index]->state == State::Empty) {
+        table_[index]->key = std::move(key);
+        table_[index]->value = std::move(value);
+        table_[index]->state = State::Occupied;
+        ++size_;
+        return true;
+      }
+    }
+
+    // если после полного обхода не нашли место, но встречалась удаленная ячейка
+    if (first_deleted) {
+      table_[*first_deleted]->key = std::move(key);
+      table_[*first_deleted]->value = std::move(value);
+      table_[*first_deleted]->state = State::Occupied;
+      ++size_;
+      return true;
     }
 
     return false;
