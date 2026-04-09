@@ -1,0 +1,6 @@
+**/data/*  linguist-vendored
+**/build/* linguist-vendored
+**/pics/*  linguist-vendored
+*.h   linguist-language=C++
+*.hpp linguist-language=C++
+*.cpp linguist-language=C++
