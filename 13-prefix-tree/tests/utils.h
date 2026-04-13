@@ -33,3 +33,25 @@ void show_result(bool result, size_t duration, size_t size,
   std::cout << (result ? "[ + ] "sv : "[ - ] "sv) << std::setw(10) << test_name
             << ": "sv << size << " "sv << duration << "s"sv << std::endl;
 }
+
+//--- data preparatioh ------------------------------------
+
+std::vector<std::string> generate_random_strings(size_t count, int min_len,
+                                                 int max_len) {
+  static std::mt19937 gen(42);
+
+  std::uniform_int_distribution<int> len_dist{min_len, max_len};
+  std::uniform_int_distribution<int> char_dist{'a', 'z'};
+
+  std::vector<std::string> result;
+  result.reserve(count);
+
+  for (size_t i = 0; i != count; ++i) {
+    std::string s(len_dist(gen), '\0');
+    std::generate(s.begin(), s.end(),
+                  [&char_dist]() { return static_cast<char>(char_dist(gen)); });
+    result.push_back(std::move(s));
+  }
+
+  return result;
+}

@@ -29,16 +29,31 @@ public:
                              [&sym](const auto &ch) { return ch.key == sym; });
       if (it == current->children.end()) {
         current->children.push_back({sym, std::make_unique<Node>()});
-        current = current->children.back().node.get();
-      } else {
-        current = it->node.get();
+        it = std::prev(current->children.end());
       }
+      current = it->node.get();
     }
+
+    // TODO: проверка дубликатов — добавить логику:
+    // 1. Проверить, существует ли уже значение для этого ключа
+    // (current->value.has_value())
+    // 2. Принять решение:
+    //    - пропустить вставку, если ключ уже есть;
+    //    - обновить значение, если это разрешено;
+    //    - выбросить исключение или вернуть статус.
+
     current->value = std::forward<Val>(val);
   }
 
-  template <typename Sequence> bool remove(const Sequence &key) {
-    return remove(root_.get(), key, 0);
+  template <typename Sequence> void remove(const Sequence &key) {
+    // TODO: вернуть статус удаления ключа:
+    // - true: ключ был найден и его значение удалено;
+    // - false: ключ не найден в дереве.
+    // Текущая реализация возвращает признак того,
+    // должен ли узел быть удалён родителем
+    // - true: узел пустой и подлежит удалению;
+    // - false: узел нужно сохранить.
+    remove(root_.get(), key, 0);
   }
 
   template <typename Sequence> V *get(const Sequence &key) {

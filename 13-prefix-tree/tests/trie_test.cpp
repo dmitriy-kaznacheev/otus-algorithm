@@ -5,14 +5,59 @@
 int main() {
   using namespace trie;
 
-  TrieMap<char, std::string> map;
+  const size_t size{1'000'000};
+  const auto data = generate_random_strings(size, 10, 20);
 
-  auto data{"test string"s};
-  map.insert("key1"sv, std::move(data));
-  std::cout << "containts 'key1': "sv << (map.get("key1"sv) != nullptr) << std::endl;
+  TrieMap<char, long> map;
 
-  map.remove("key1"sv);
-  std::cout << "after remove:     "sv << (map.get("key1"sv) != nullptr) << std::endl;
+  {
+    Timer t;
+    long value{};
+    for (auto it = data.begin(); it != data.end(); ++it) {
+      map.insert(*it, std::move(value));
+      ++value;
+    }
+    show_result(true, t.duration(), size, "insert"sv);
+  }
+
+  {
+    Timer t;
+    bool result{true};
+    long value{};
+    for (auto it = data.begin(); it != data.end(); ++it) {
+      long *val = map.get(*it);
+      if ((val == nullptr) || (*val != value)) {
+        std::cout << (*val) << " " << value << std::endl;
+        result = false;
+        break;
+      }
+      ++value;
+    }
+    show_result(result, t.duration(), size, "search"sv);
+  }
+
+  {
+    Timer t;
+    for (auto it = data.begin(); it != data.end(); ++it) {
+      map.remove(*it);
+    }
+    show_result(true, t.duration(), size, "remove"sv);
+  }
+
+  {
+    Timer t;
+    bool result{true};
+    long value{};
+    for (auto it = data.begin(); it != data.end(); ++it) {
+      auto *val = map.get(*it);
+      if (val && (*val == value)) {
+        result = false;
+        break;
+      }
+      ++value;
+    }
+    show_result(result, t.duration(), size, "search"sv);
+  }
 
   return 0;
 }
