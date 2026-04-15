@@ -38,3 +38,6 @@
 ## [12-hash-tables](12-hash-tables)
 Хеш-таблицы
 
+## [13-prefix-tree](13-prefix-tree)
+Префиксное дерево (trie)
+
