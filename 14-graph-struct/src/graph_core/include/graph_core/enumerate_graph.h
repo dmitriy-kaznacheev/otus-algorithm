@@ -25,8 +25,6 @@ public:
     for (const auto &[from, to] : edges_) {
       if (from == v) {
         neighbors.push_back(to);
-      } else if (to == v) {
-        neighbors.push_back(from);
       }
     }
     return neighbors;
