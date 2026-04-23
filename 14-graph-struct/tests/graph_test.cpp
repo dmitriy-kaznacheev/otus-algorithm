@@ -36,8 +36,9 @@ protected:
 
 // clang-format off
 using GraphTypes = ::testing::Types<
-  graph_core::EnumerateGraph<value_type>>;
-  // graph_core::AdjacencyMatrixGraph<value_type>,
+  graph_core::EnumerateGraph<value_type>,
+  graph_core::AdjacencyMatrixGraph<value_type>
+>;
   // graph_core::IncidenceMatrixGraph<value_type>,
   // graph_core::EdgeListGraph<value_type>,
   // graph_core::AdjacencyVectorGraph<value_type>,
@@ -45,7 +46,6 @@ using GraphTypes = ::testing::Types<
   // graph_core::AdjacencyListGraph<value_type>,
   // graph_core::IndexedGraph<value_type>,
   // graph_core::VertexEdgeListGraph<value_type>
-//>;
 // clang-format on
 
 TYPED_TEST_SUITE(GraphTest, GraphTypes);
@@ -95,7 +95,7 @@ TYPED_TEST(GraphTest, get_neighbors) {
   }
 
   {
-    auto expected = std::vector<value_type>{1, 4};
+    auto expected = std::vector<value_type>{4};
     auto actual = graph.get_neighbors(2);
     EXPECT_TRUE(vectors_equal_unordered(expected, actual));
   }
