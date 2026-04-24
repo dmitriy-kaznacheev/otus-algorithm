@@ -39,9 +39,9 @@ using GraphTypes = ::testing::Types<
   graph_core::EnumerateGraph<value_type>,
   graph_core::AdjacencyMatrixGraph<value_type>,
   graph_core::IncidenceMatrixGraph<value_type>,
-  graph_core::EdgeListGraph<value_type>
+  graph_core::EdgeListGraph<value_type>,
+  graph_core::AdjacencyVectorGraph<value_type>
 >;
-  // graph_core::AdjacencyVectorGraph<value_type>,
   // graph_core::AdjacencyArrayGraph<value_type, 10>,
   // graph_core::AdjacencyListGraph<value_type>,
   // graph_core::IndexedGraph<value_type>,
