@@ -68,8 +68,8 @@ public:
   std::vector<Edge<T>> get_edges_impl() const {
     std::vector<Edge<T>> edges;
     for (size_t i = 0; i != vcount_; ++i) {
-      for (size_t j = 0; j != arrays_[i].size(); ++j) {
-        edges.emplace_back(vertices_[i], arrays_[i][j]);
+      for (const auto &neighbor : arrays_[i]) {
+        edges.emplace_back(vertices_[i], neighbor);
       }
     }
     return edges;
