@@ -10,7 +10,7 @@ class AdjacencyArrayGraph final
 
 public:
   void add_vertex_impl(const T &v) {
-    if (has_vertex(v) || exceeds_vertex_limit()) {
+    if (!can_add_vertex(v)) {
       return;
     }
 
@@ -19,7 +19,7 @@ public:
   }
 
   void add_edge_impl(const Edge<T> &edge) {
-    if (const auto &[from, to] = edge; has_edge_impl(from, to)) {
+    if (!can_add_edge(edge)) {
       return;
     }
 
@@ -77,7 +77,24 @@ public:
 
 private:
   bool has_vertex(const T &v) const { return index_.find(v) != index_.end(); }
-  bool exceeds_vertex_limit() const { return MaxVertices < vcount_; }
+  bool can_add_vertex(const T &v) const {
+    return !has_vertex(v) && (vcount_ < MaxVertices);
+  }
+  bool can_add_edge(const Edge<T> &edge) const {
+    const auto &[from, to] = edge;
+    if (has_edge_impl(from, to)) {
+      return false;
+    }
+
+    size_t new_vertices = 0;
+    if (!has_vertex(from)) {
+      ++new_vertices;
+    }
+    if ((from != to) && !has_vertex(to)) {
+      ++new_vertices;
+    }
+    return (vcount_ + new_vertices) <= MaxVertices;
+  }
 
 private:
   size_t vcount_{0};
