@@ -76,9 +76,22 @@ private:
   bool has_vertex(const T &v) const { return index_.find(v) != index_.end(); }
 
   void resize_matrix() {
-    matrix_.resize(vertices_.size());
-    for (auto &row : matrix_) {
-      row.resize(edges_.size(), 0);
+    size_t v_size = vertices_.size();
+    if (matrix_.size() < v_size) {
+      if (matrix_.capacity() < v_size) {
+        matrix_.reserve(v_size * 2);
+      }
+      matrix_.resize(v_size);
+    }
+
+    size_t e_size = edges_.size();
+    if (!matrix_.empty() && matrix_[0].size() < e_size) {
+      for (auto &row : matrix_) {
+        if (row.capacity() < e_size) {
+          row.reserve(e_size * 2);
+        }
+        row.resize(e_size, 0);
+      }
     }
   }
 
