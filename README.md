@@ -41,3 +41,6 @@
 ## [13-prefix-tree](13-prefix-tree)
 Префиксное дерево (trie)
 
+## [14-graph-struct](14-graph-struct)
+Cтруктуры данных для работы с графами
+
