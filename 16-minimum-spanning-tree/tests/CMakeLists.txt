@@ -10,7 +10,10 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 add_executable(mst_test 
-  mst_test.cpp
+  graph_test.cpp
+  dsu_test.cpp
+  kruskal_test.cpp
+  prim_test.cpp
 )
 
 target_link_libraries(mst_test
