@@ -12,6 +12,8 @@ inline std::vector<Edge<T>> prim(const Graph<T> &graph, size_t start = 0) {
   }
 
   std::vector<Edge<T>> result;
+  result.reserve(vcount - 1);
+
   std::vector<bool> visited(vcount, false);
   auto adj = graph.get_adjacency();
 
@@ -26,7 +28,7 @@ inline std::vector<Edge<T>> prim(const Graph<T> &graph, size_t start = 0) {
 
   size_t visited_count = 1;
 
-  while (!pq.empty()) {
+  while (!pq.empty() && (result.size() < vcount - 1)) {
     auto top = pq.top();
     pq.pop();
 

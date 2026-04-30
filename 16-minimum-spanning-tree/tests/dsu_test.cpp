@@ -1,5 +1,5 @@
-#include <mst/core.h>
 #include <gtest/gtest.h>
+#include <mst/core.h>
 
 TEST(dsu_test, init) {
   mst::DSU dsu(3);

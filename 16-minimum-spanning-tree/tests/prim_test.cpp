@@ -1,5 +1,5 @@
-#include <mst/prim.h>
 #include <gtest/gtest.h>
+#include <mst/prim.h>
 
 TEST(prim_test, connected_graph) {
   mst::Graph<int> graph(3);

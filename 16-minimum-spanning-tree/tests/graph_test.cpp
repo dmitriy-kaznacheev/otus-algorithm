@@ -1,5 +1,5 @@
-#include <mst/core.h>
 #include <gtest/gtest.h>
+#include <mst/core.h>
 
 TEST(graph_test, create) {
   mst::Graph<int> graph(3);
