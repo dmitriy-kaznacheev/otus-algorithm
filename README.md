@@ -49,3 +49,6 @@ Cтруктуры данных для работы с графами
 
 ## [16-minimum-spanning-tree](16-minimum-spanning-tree)
 Алгоритм нахождения минимального остовного дерева
+
+## [17-graph-shortest-path](17-graph-shortest-path)
+Алгоритмы поиска кратчайшего пути в графах
