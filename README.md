@@ -44,5 +44,8 @@
 ## [14-graph-struct](14-graph-struct)
 Cтруктуры данных для работы с графами
 
+## [15-graph-alg-demucron](15-graph-alg-demucron)
+Алгоритм Демукрона — топологическая сортировка орграфа
+
 ## [16-minimum-spanning-tree](16-minimum-spanning-tree)
 Алгоритм нахождения минимального остовного дерева
