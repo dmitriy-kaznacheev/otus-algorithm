@@ -22,7 +22,7 @@ inline void check_negative_weights(const Graph<T> &graph) {
 template <typename T>
 inline std::vector<T> dejkstra(const Graph<T> &graph, size_t start_node) {
   auto vertices = graph.get_vertices();
-  if ((start_node < 0) || (start_node >= vertices)) {
+  if (start_node >= vertices) {
     throw std::out_of_range("start node index out of bounds");
   }
 

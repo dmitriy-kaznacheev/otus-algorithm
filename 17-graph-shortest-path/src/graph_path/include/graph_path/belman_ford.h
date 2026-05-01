@@ -9,8 +9,12 @@ template <typename T>
 inline std::optional<std::vector<T>> belman_ford(const Graph<T> &graph,
                                                  size_t start_node) {
   auto vertices = graph.get_vertices();
-  if ((start_node < 0) || (start_node >= vertices)) {
+  if (start_node >= vertices) {
     throw std::out_of_range("start node index out of bounds");
+  }
+
+  if (vertices == 0) {
+    return std::vector<T>();
   }
 
   T inf = std::numeric_limits<T>::max();
@@ -25,6 +29,11 @@ inline std::optional<std::vector<T>> belman_ford(const Graph<T> &graph,
     for (const auto &edge : edges) {
       if (shortest_dist[edge.from] == inf) {
         continue; // защита от переполнения
+      }
+
+      if (edge.weight < 0 && shortest_dist[edge.from] > inf + edge.weight) {
+        // защита от переполнения при сложении с отрицательным весом
+        continue;
       }
 
       T new_dist = shortest_dist[edge.from] + edge.weight;
