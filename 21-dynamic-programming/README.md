@@ -3,8 +3,7 @@
 ## Цель
 Освоить реализацию задач на динамическое программирование
 
-### JUNIOR  
-#### 1. Раз горох, два горох
+## 1. Раз горох, два горох (JUNIOR)
 
 Суслик и Хома нашли кладовку с горохом и решили его поделить.  
 — Ты чего мой горох берёшь!  
@@ -27,7 +26,7 @@
 Максимальное значение дроби — `1/1`.
 
 
-#### Решение
+## Решение
   <br />
   <details>
     <summary>результаты тестов</summary>
@@ -74,7 +73,7 @@
 
   </details>
 
-#### 2. Ёлочка программиста 
+## 2. Ёлочка программиста (JUNIOR)
 
 Новогодняя ёлочка программиста состоит из цифр.
 
@@ -88,7 +87,7 @@
 
 **Вывести** одно число — максимальную сумму найденной гирлянды.
 
-#### Решение
+## Решение
   <br />
   <details>
     <summary>результаты тестов</summary>
@@ -135,7 +134,7 @@
   </details>
 
 
-#### 3. Пятью восемь 
+## 3. Пятью восемь (JUNIOR)
 
 Дано число N. Выяснить, сколько N-значных чисел можно составить,
 используя цифры 5 и 8, в которых три одинаковые цифры не стоят рядом?
@@ -144,7 +143,7 @@
 Диапазон значений: N от 1 до 88.
 Вывод результата: одно число — количество разных N-значных чисел по условию (сами числа выводить не надо).
 
-#### Решение
+## Решение
   <br />
   <details>
     <summary>результаты тестов</summary>
@@ -193,7 +192,7 @@
   </details>
 
 
-#### 4. Большой остров +1 байт
+## 4. Большой остров (JUNIOR)
 Каждый элемент квадратной матрицы размеренности N x N равен нулю либо единице. Найдите количество «островов», образованных единицами. Под «островом» понимается группа единиц (либо одна единица), со всех сторон окруженная нулями (или краями матрицы). Единицы относятся к одному «острову», если из одной из них можно перейти к другой, «наступая» на единицы, расположенные в соседних клетках. Соседними являются клетки, граничащие по горизонтали или вертикали.
 
 Входные данные
@@ -203,7 +202,7 @@
 Выходные данные
 Вывести единственное число — количество островов.
 
-#### Решение
+## Решение
   <br />
   <details>
     <summary>результаты тестов</summary>
@@ -251,6 +250,229 @@
     [       OK ] DataFiles/BigIslandTest.file/9 (5 ms)
     [----------] 10 tests from DataFiles/BigIslandTest (7 ms total)
 
+  ```
+
+  </details>
+
+## 5. Большой сарай
+
+Задача на поиск максимального по площади прямоугольника, состоящего только из нулей, в бинарной матрице. Реализация разделена на несколько этапов — от простого перебора до оптимального решения.
+
+### Оглавление
+
+- [Условие задачи (MIDDLE)](#условие-задачи-middle)
+- [Этап 1. Маленький сарай](#этап-1-маленький-сарай)
+- [Этап 2. Длина сарая](#этап-2-длина-сарая)
+- [Этап 3. Ширина сарая](#этап-3-ширина-сарая)
+- [Условие задачи (SENIOR)](#условие-задачи-senior)
+- [Этап 4. Большой сарай](#этап-4-большой-сарай)
+- [Решение. Все этапы](#решение-все-этапы)
+---
+
+### Условие задачи (MIDDLE)
+
+**Большой и маленький сарай**
+
+Фермер хочет построить на своей земле как можно больший по площади сарай. На участке есть деревья и хозяйственные постройки, которые нельзя переносить.
+
+Представим ферму как сетку размера **N × M**. Каждая постройка занимает один узел сетки. Требуется найти максимальную площадь сарая (прямоугольник, состоящий только из свободных клеток).
+
+#### Входные данные:
+- **Первая строка:** `N M` — размеры матрицы (1 ≤ N, M ≤ 1000).
+- **Вторая строка:** `T` — количество занятых клеток (0 ≤ T ≤ 10000).
+- **Следующие T строк:** `X Y` — координаты построек (0 ≤ X < N, 0 ≤ Y < M).
+
+#### Выходные данные:
+- Одно число — максимальная площадь сарая (количество ячеек).
+
+> Решение разделено на 4 этапа.
+
+---
+
+### Этап 1. Маленький сарай
+
+*Простейшее решение полным перебором*
+
+#### Условие
+Решается та же задача поиска максимального прямоугольника из нулей, но с ограничениями и прямым вводом матрицы.
+
+#### Входные данные:
+- **Первая строка:** `N M` (1 ≤ N, M ≤ 30).
+- **Следующие M строк:** по `N` элементов (`0` или `1`) через пробел.
+
+#### Выходные данные:
+- Одно число — максимальная площадь.
+
+---
+
+### Этап 2. Длина сарая 
+
+*Преобразование матрицы в гистограммы* 
+
+Для каждой клетки вычисляется, сколько свободных клеток находится **подряд вверх**, начиная с данной.
+
+#### Входные данные:
+- **Первая строка:** `N M` (1 ≤ N, M ≤ 1000).
+- **Вторая строка:** `T` — количество занятых клеток (0 ≤ T ≤ 10000).
+- **Следующие T строк:** `X Y` — координаты занятых клеток.
+
+#### Выходные данные:
+- Матрица **N × M** чисел, показывающих высоту «столбца» свободных клеток вверх от текущей позиции.
+- Формат: `M` строк по `N` чисел через пробел.
+
+---
+
+### Этап 3. Ширина сарая
+
+*Вычисление границ расширения прямоугольника* 
+
+Для каждого элемента массива **A** (высоты столбца) определяются индексы ближайших меньших элементов слева и справа. Это позволяет вычислить максимальную ширину прямоугольника для заданной высоты.
+
+#### Входные данные:
+- **Первая строка:** `N` — длина массива (1 ≤ N ≤ 10000).
+- **Следующие N строк:** элементы массива `A[i]` (0 ≤ A[i] ≤ 10000).
+
+#### Выходные данные:
+- **Первая строка:** Массив **L** — индексы самых левых элементов, которые ≥ текущего.
+- **Вторая строка:** Массив **R** — индексы самых правых элементов, которые ≥ текущего.
+- Индексация с нуля. Числа разделены пробелами.
+
+#### Подсказка
+Площадь прямоугольника для столбца `i` вычисляется по формуле:
+`Площадь = A[i] * (R[i] - L[i] + 1)`
+
+---
+
+### Условие задачи (SENIOR)
+
+**Большой сарай. Итоговое решение** 
+
+Финальная сборка всех этапов в одну программу. Решается задача, описанная в блоке MIDDLE, с исходными ограничениями N, M ≤ 1000.
+
+#### Входные данные:
+- **Первая строка:** `N M` — размеры матрицы (1 ≤ N, M ≤ 1000).
+- **Вторая строка:** `T` — количество занятых клеток (0 ≤ T ≤ 10000).
+- **Следующие T строк:** `X Y` — координаты построек.
+
+#### Выходные данные:
+- Одно число — максимальная площадь сарая.
+
+---
+
+### Этап 4. Большой сарай 
+
+## Решение. Все этапы
+  <br />
+  <details>
+    <summary>результаты тестов</summary>
+
+  ```
+    [----------] 8 tests from small_barn_test
+    [ RUN      ] small_barn_test.simple
+    [       OK ] small_barn_test.simple (0 ms)
+    [ RUN      ] small_barn_test.empty
+    [       OK ] small_barn_test.empty (0 ms)
+    [ RUN      ] small_barn_test.center_empty
+    [       OK ] small_barn_test.center_empty (0 ms)
+    [ RUN      ] small_barn_test.all_filled
+    [       OK ] small_barn_test.all_filled (0 ms)
+    [ RUN      ] small_barn_test.single_empty_cell
+    [       OK ] small_barn_test.single_empty_cell (0 ms)
+    [ RUN      ] small_barn_test.empty_grid
+    [       OK ] small_barn_test.empty_grid (0 ms)
+    [ RUN      ] small_barn_test.single_row
+    [       OK ] small_barn_test.single_row (0 ms)
+    [ RUN      ] small_barn_test.single_column
+    [       OK ] small_barn_test.single_column (0 ms)
+    [----------] 8 tests from small_barn_test (0 ms total)
+    [----------] 6 tests from barn_length_test
+    [ RUN      ] barn_length_test.simple
+    [       OK ] barn_length_test.simple (0 ms)
+    [ RUN      ] barn_length_test.no_obstacles
+    [       OK ] barn_length_test.no_obstacles (0 ms)
+    [ RUN      ] barn_length_test.no_free
+    [       OK ] barn_length_test.no_free (0 ms)
+    [ RUN      ] barn_length_test.single_column
+    [       OK ] barn_length_test.single_column (0 ms)
+    [ RUN      ] barn_length_test.first_row_obstacle
+    [       OK ] barn_length_test.first_row_obstacle (0 ms)
+    [ RUN      ] barn_length_test.scattered_obstacles
+    [       OK ] barn_length_test.scattered_obstacles (0 ms)
+    [----------] 6 tests from barn_length_test (0 ms total)
+    [----------] 9 tests from barn_width_test
+    [ RUN      ] barn_width_test.example_from_task
+    [       OK ] barn_width_test.example_from_task (0 ms)
+    [ RUN      ] barn_width_test.increasing_sequence
+    [       OK ] barn_width_test.increasing_sequence (0 ms)
+    [ RUN      ] barn_width_test.secreasing_sequence
+    [       OK ] barn_width_test.secreasing_sequence (0 ms)
+    [ RUN      ] barn_width_test.all_equal
+    [       OK ] barn_width_test.all_equal (0 ms)
+    [ RUN      ] barn_width_test.single_element
+    [       OK ] barn_width_test.single_element (0 ms)
+    [ RUN      ] barn_width_test.empty_array
+    [       OK ] barn_width_test.empty_array (0 ms)
+    [ RUN      ] barn_width_test.min_in_middle
+    [       OK ] barn_width_test.min_in_middle (0 ms)
+    [ RUN      ] barn_width_test.max_in_middle
+    [       OK ] barn_width_test.max_in_middle (0 ms)
+    [ RUN      ] barn_width_test.every_other_max
+    [       OK ] barn_width_test.every_other_max (0 ms)
+    [----------] 9 tests from barn_width_test (0 ms total)
+    [----------] 24 tests from big_barn_test
+    [ RUN      ] big_barn_test.example_from_task
+    [       OK ] big_barn_test.example_from_task (0 ms)
+    [ RUN      ] big_barn_test.no_obstacles
+    [       OK ] big_barn_test.no_obstacles (0 ms)
+    [ RUN      ] big_barn_test.diagonal_obstacles
+    [       OK ] big_barn_test.diagonal_obstacles (0 ms)
+    [ RUN      ] big_barn_test.single_empty_cell
+    [       OK ] big_barn_test.single_empty_cell (0 ms)
+    [ RUN      ] big_barn_test.single_occupied_cell
+    [       OK ] big_barn_test.single_occupied_cell (0 ms)
+    [ RUN      ] big_barn_test.large_grid_with_one_obstacle
+    [       OK ] big_barn_test.large_grid_with_one_obstacle (0 ms)
+    [ RUN      ] big_barn_test.vertical_stripe
+    [       OK ] big_barn_test.vertical_stripe (0 ms)
+    [ RUN      ] big_barn_test.cross_obstacles
+    [       OK ] big_barn_test.cross_obstacles (0 ms)
+    [ RUN      ] big_barn_test.all_occupied
+    [       OK ] big_barn_test.all_occupied (0 ms)
+    [ RUN      ] big_barn_test.horizontal_obstacle_line
+    [       OK ] big_barn_test.horizontal_obstacle_line (0 ms)
+    [ RUN      ] big_barn_test.vertical_obstacle_line
+    [       OK ] big_barn_test.vertical_obstacle_line (0 ms)
+    [ RUN      ] big_barn_test.chess_pattern
+    [       OK ] big_barn_test.chess_pattern (0 ms)
+    [ RUN      ] big_barn_test.rectangle_in_corner
+    [       OK ] big_barn_test.rectangle_in_corner (0 ms)
+    [ RUN      ] big_barn_test.wide_field
+    [       OK ] big_barn_test.wide_field (0 ms)
+    [ RUN      ] big_barn_test.tall_field
+    [       OK ] big_barn_test.tall_field (0 ms)
+    [ RUN      ] big_barn_test.multiple_scattered_obstacles
+    [       OK ] big_barn_test.multiple_scattered_obstacles (0 ms)
+    [ RUN      ] big_barn_test.single_row
+    [       OK ] big_barn_test.single_row (0 ms)
+    [ RUN      ] big_barn_test.single_column
+    [       OK ] big_barn_test.single_column (0 ms)
+    [ RUN      ] big_barn_test.border_obstacles
+    [       OK ] big_barn_test.border_obstacles (0 ms)
+    [ RUN      ] big_barn_test.complex_case
+    [       OK ] big_barn_test.complex_case (0 ms)
+    [ RUN      ] big_barn_test.invalid_coordinates
+    [       OK ] big_barn_test.invalid_coordinates (0 ms)
+    [ RUN      ] big_barn_test.negative_coordinates
+    [       OK ] big_barn_test.negative_coordinates (0 ms)
+    [ RUN      ] big_barn_test.duplicate_obstacles
+    [       OK ] big_barn_test.duplicate_obstacles (0 ms)
+    [ RUN      ] big_barn_test.zero_size_grid
+    [       OK ] big_barn_test.zero_size_grid (0 ms)
+    [----------] 24 tests from big_barn_test (0 ms total)
+    [----------] 1 test from verification_test
+    [ RUN      ] verification_test.bruteforce_vs_optimal
+    [       OK ] verification_test.bruteforce_vs_optimal (0 ms)
+    [----------] 1 test from verification_test (0 ms total)
   ```
 
   </details>

@@ -14,6 +14,7 @@ add_executable(dp_test
   christmas_tree_test.cpp
   five_and_eight_test.cpp
   big_island_test.cpp
+  barn_test.cpp
 )
 
 target_link_libraries(dp_test
