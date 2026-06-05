@@ -29,7 +29,7 @@ TEST(manual_christmas_tree_test, empty) {
   EXPECT_EQ(dp::max_garland_sum(tree), 0);
 }
 
-namespace detail {
+namespace {
 Tree parse(const std::string &input) {
   std::istringstream ss(input);
   std::string line;
@@ -58,7 +58,7 @@ Tree parse(const std::string &input) {
 
   return result;
 }
-} // namespace detail
+} // namespace
 
 class ChristmasTreeTest
     : public ::testing::TestWithParam<std::pair<std::string, std::string>> {};
@@ -68,7 +68,7 @@ TEST_P(ChristmasTreeTest, file) {
   std::string input = read_file(input_file);
   std::string output = read_file(output_file);
 
-  auto tree = detail::parse(input);
+  auto tree = parse(input);
   int expected = std::stoi(output);
   EXPECT_EQ(dp::max_garland_sum(tree), expected);
 }

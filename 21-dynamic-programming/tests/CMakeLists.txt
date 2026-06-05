@@ -13,6 +13,7 @@ add_executable(dp_test
   peas_division_test.cpp
   christmas_tree_test.cpp
   five_and_eight_test.cpp
+  big_island_test.cpp
 )
 
 target_link_libraries(dp_test

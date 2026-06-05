@@ -191,3 +191,66 @@
   ```
 
   </details>
+
+
+#### 4. Большой остров +1 байт
+Каждый элемент квадратной матрицы размеренности N x N равен нулю либо единице. Найдите количество «островов», образованных единицами. Под «островом» понимается группа единиц (либо одна единица), со всех сторон окруженная нулями (или краями матрицы). Единицы относятся к одному «острову», если из одной из них можно перейти к другой, «наступая» на единицы, расположенные в соседних клетках. Соседними являются клетки, граничащие по горизонтали или вертикали.
+
+Входные данные
+В первой строке вводится натуральное число N не больше 100 — размер квадратной матрицы.
+В следующих N строках задаются элементы матрицы, по N чисел через пробел на каждой.
+
+Выходные данные
+Вывести единственное число — количество островов.
+
+#### Решение
+  <br />
+  <details>
+    <summary>результаты тестов</summary>
+
+  ```
+    $ ./tests/dt_test
+    [----------] 8 tests from manual_big_island_test
+    [ RUN      ] manual_big_island_test.two_islands
+    [       OK ] manual_big_island_test.two_islands (0 ms)
+    [ RUN      ] manual_big_island_test.five_islands
+    [       OK ] manual_big_island_test.five_islands (0 ms)
+    [ RUN      ] manual_big_island_test.not_connected
+    [       OK ] manual_big_island_test.not_connected (0 ms)
+    [ RUN      ] manual_big_island_test.single_islands
+    [       OK ] manual_big_island_test.single_islands (0 ms)
+    [ RUN      ] manual_big_island_test.to_islands
+    [       OK ] manual_big_island_test.to_islands (0 ms)
+    [ RUN      ] manual_big_island_test.single_cell
+    [       OK ] manual_big_island_test.single_cell (0 ms)
+    [ RUN      ] manual_big_island_test.l_shaped_islands
+    [       OK ] manual_big_island_test.l_shaped_islands (0 ms)
+    [ RUN      ] manual_big_island_test.empty_grid
+    [       OK ] manual_big_island_test.empty_grid (0 ms)
+    [----------] 8 tests from manual_big_island_test (0 ms total)
+    [----------] 10 tests from DataFiles/BigIslandTest
+    [ RUN      ] DataFiles/BigIslandTest.file/0
+    [       OK ] DataFiles/BigIslandTest.file/0 (0 ms)
+    [ RUN      ] DataFiles/BigIslandTest.file/1
+    [       OK ] DataFiles/BigIslandTest.file/1 (0 ms)
+    [ RUN      ] DataFiles/BigIslandTest.file/2
+    [       OK ] DataFiles/BigIslandTest.file/2 (0 ms)
+    [ RUN      ] DataFiles/BigIslandTest.file/3
+    [       OK ] DataFiles/BigIslandTest.file/3 (0 ms)
+    [ RUN      ] DataFiles/BigIslandTest.file/4
+    [       OK ] DataFiles/BigIslandTest.file/4 (0 ms)
+    [ RUN      ] DataFiles/BigIslandTest.file/5
+    [       OK ] DataFiles/BigIslandTest.file/5 (0 ms)
+    [ RUN      ] DataFiles/BigIslandTest.file/6
+    [       OK ] DataFiles/BigIslandTest.file/6 (0 ms)
+    [ RUN      ] DataFiles/BigIslandTest.file/7
+    [       OK ] DataFiles/BigIslandTest.file/7 (0 ms)
+    [ RUN      ] DataFiles/BigIslandTest.file/8
+    [       OK ] DataFiles/BigIslandTest.file/8 (1 ms)
+    [ RUN      ] DataFiles/BigIslandTest.file/9
+    [       OK ] DataFiles/BigIslandTest.file/9 (5 ms)
+    [----------] 10 tests from DataFiles/BigIslandTest (7 ms total)
+
+  ```
+
+  </details>
