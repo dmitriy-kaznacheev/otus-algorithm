@@ -74,7 +74,7 @@
 
   </details>
 
-#### 2. Ёлочка программиста +1 байт
+#### 2. Ёлочка программиста 
 
 Новогодняя ёлочка программиста состоит из цифр.
 
@@ -129,6 +129,64 @@
     [ RUN      ] DataFiles/ChristmasTreeTest.file/9
     [       OK ] DataFiles/ChristmasTreeTest.file/9 (4 ms)
     [----------] 10 tests from DataFiles/ChristmasTreeTest (14 ms total)
+
+  ```
+
+  </details>
+
+
+#### 3. Пятью восемь 
+
+Дано число N. Выяснить, сколько N-значных чисел можно составить,
+используя цифры 5 и 8, в которых три одинаковые цифры не стоят рядом?
+
+Начальные данные: натуральное число N.
+Диапазон значений: N от 1 до 88.
+Вывод результата: одно число — количество разных N-значных чисел по условию (сами числа выводить не надо).
+
+#### Решение
+  <br />
+  <details>
+    <summary>результаты тестов</summary>
+
+  ```
+    $ ./tests/dt_test 
+    [----------] 6 tests from manual_five_and_eight_test
+    [ RUN      ] manual_five_and_eight_test.N1
+    [       OK ] manual_five_and_eight_test.N1 (0 ms)
+    [ RUN      ] manual_five_and_eight_test.N2
+    [       OK ] manual_five_and_eight_test.N2 (0 ms)
+    [ RUN      ] manual_five_and_eight_test.N3
+    [       OK ] manual_five_and_eight_test.N3 (0 ms)
+    [ RUN      ] manual_five_and_eight_test.N4
+    [       OK ] manual_five_and_eight_test.N4 (0 ms)
+    [ RUN      ] manual_five_and_eight_test.N5
+    [       OK ] manual_five_and_eight_test.N5 (0 ms)
+    [ RUN      ] manual_five_and_eight_test.N_large
+    [       OK ] manual_five_and_eight_test.N_large (0 ms)
+    [----------] 6 tests from manual_five_and_eight_test (0 ms total)
+    [----------] 10 tests from DataFiles/FiveAndEightTest
+    [ RUN      ] DataFiles/FiveAndEightTest.file/0
+    [       OK ] DataFiles/FiveAndEightTest.file/0 (0 ms)
+    [ RUN      ] DataFiles/FiveAndEightTest.file/1
+    [       OK ] DataFiles/FiveAndEightTest.file/1 (0 ms)
+    [ RUN      ] DataFiles/FiveAndEightTest.file/2
+    [       OK ] DataFiles/FiveAndEightTest.file/2 (0 ms)
+    [ RUN      ] DataFiles/FiveAndEightTest.file/3
+    [       OK ] DataFiles/FiveAndEightTest.file/3 (0 ms)
+    [ RUN      ] DataFiles/FiveAndEightTest.file/4
+    [       OK ] DataFiles/FiveAndEightTest.file/4 (0 ms)
+    [ RUN      ] DataFiles/FiveAndEightTest.file/5
+    [       OK ] DataFiles/FiveAndEightTest.file/5 (0 ms)
+    [ RUN      ] DataFiles/FiveAndEightTest.file/6
+    [       OK ] DataFiles/FiveAndEightTest.file/6 (0 ms)
+    [ RUN      ] DataFiles/FiveAndEightTest.file/7
+    [       OK ] DataFiles/FiveAndEightTest.file/7 (0 ms)
+    [ RUN      ] DataFiles/FiveAndEightTest.file/8
+    [       OK ] DataFiles/FiveAndEightTest.file/8 (0 ms)
+    [ RUN      ] DataFiles/FiveAndEightTest.file/9
+    [       OK ] DataFiles/FiveAndEightTest.file/9 (0 ms)
+    [----------] 10 tests from DataFiles/FiveAndEightTest (0 ms total)
 
   ```
 
