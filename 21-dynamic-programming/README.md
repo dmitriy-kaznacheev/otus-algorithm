@@ -34,8 +34,6 @@
 
   ```
     $ ./tests/dt_test 
-    [==========] Running 16 tests from 2 test suites.
-    [----------] Global test environment set-up.
     [----------] 6 tests from manual_peas_division_test
     [ RUN      ] manual_peas_division_test.simple_fractions
     [       OK ] manual_peas_division_test.simple_fractions (0 ms)
@@ -50,7 +48,6 @@
     [ RUN      ] manual_peas_division_test.invalid_format
     [       OK ] manual_peas_division_test.invalid_format (0 ms)
     [----------] 6 tests from manual_peas_division_test (0 ms total)
-
     [----------] 10 tests from DataFiles/PeasDivisionTest
     [ RUN      ] DataFiles/PeasDivisionTest.file/0
     [       OK ] DataFiles/PeasDivisionTest.file/0 (0 ms)
@@ -73,10 +70,66 @@
     [ RUN      ] DataFiles/PeasDivisionTest.file/9
     [       OK ] DataFiles/PeasDivisionTest.file/9 (0 ms)
     [----------] 10 tests from DataFiles/PeasDivisionTest (0 ms total)
+  ```
 
-    [----------] Global test environment tear-down
-    [==========] 16 tests from 2 test suites ran. (1 ms total)
-    [  PASSED  ] 16 tests.
+  </details>
+
+#### 2. Ёлочка программиста +1 байт
+
+Новогодняя ёлочка программиста состоит из цифр.
+
+На первой строке записана высота ёлочки — натуральное число от 1 до 100.
+
+Далее на N строчках зарисована сама ёлочка: сначала 1 цифра, потом 2, на последней строке — N цифр через пробел. В начале и в конце каждой строки могут быть пробелы, чтобы ёлочка получилась красивой.
+
+**Гирляндой** называется последовательность цифр, которую можно получить, спускаясь от верхушки ёлки до её подножья, каждый раз смещаясь либо влево-вниз, либо вправо-вниз.
+
+Найти гирлянду с максимальной суммой цифр.
+
+**Вывести** одно число — максимальную сумму найденной гирлянды.
+
+#### Решение
+  <br />
+  <details>
+    <summary>результаты тестов</summary>
+
+  ```
+    $ ./tests/dt_test 
+    [----------] 5 tests from manual_christmas_tree_test
+    [ RUN      ] manual_christmas_tree_test.Example1
+    [       OK ] manual_christmas_tree_test.Example1 (0 ms)
+    [ RUN      ] manual_christmas_tree_test.large
+    [       OK ] manual_christmas_tree_test.large (0 ms)
+    [ RUN      ] manual_christmas_tree_test.single
+    [       OK ] manual_christmas_tree_test.single (0 ms)
+    [ RUN      ] manual_christmas_tree_test.symmetric
+    [       OK ] manual_christmas_tree_test.symmetric (0 ms)
+    [ RUN      ] manual_christmas_tree_test.empty
+    [       OK ] manual_christmas_tree_test.empty (0 ms)
+    [----------] 5 tests from manual_christmas_tree_test (0 ms total)
+    [----------] 10 tests from DataFiles/ChristmasTreeTest
+    [ RUN      ] DataFiles/ChristmasTreeTest.file/0
+    [       OK ] DataFiles/ChristmasTreeTest.file/0 (0 ms)
+    [ RUN      ] DataFiles/ChristmasTreeTest.file/1
+    [       OK ] DataFiles/ChristmasTreeTest.file/1 (0 ms)
+    [ RUN      ] DataFiles/ChristmasTreeTest.file/2
+    [       OK ] DataFiles/ChristmasTreeTest.file/2 (0 ms)
+    [ RUN      ] DataFiles/ChristmasTreeTest.file/3
+    [       OK ] DataFiles/ChristmasTreeTest.file/3 (2 ms)
+    [ RUN      ] DataFiles/ChristmasTreeTest.file/4
+    [       OK ] DataFiles/ChristmasTreeTest.file/4 (0 ms)
+    [ RUN      ] DataFiles/ChristmasTreeTest.file/5
+    [       OK ] DataFiles/ChristmasTreeTest.file/5 (1 ms)
+    [ RUN      ] DataFiles/ChristmasTreeTest.file/6
+    [       OK ] DataFiles/ChristmasTreeTest.file/6 (1 ms)
+    [ RUN      ] DataFiles/ChristmasTreeTest.file/7
+    [       OK ] DataFiles/ChristmasTreeTest.file/7 (4 ms)
+    [ RUN      ] DataFiles/ChristmasTreeTest.file/8
+    [       OK ] DataFiles/ChristmasTreeTest.file/8 (0 ms)
+    [ RUN      ] DataFiles/ChristmasTreeTest.file/9
+    [       OK ] DataFiles/ChristmasTreeTest.file/9 (4 ms)
+    [----------] 10 tests from DataFiles/ChristmasTreeTest (14 ms total)
+
   ```
 
   </details>

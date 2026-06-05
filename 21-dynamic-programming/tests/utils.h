@@ -9,7 +9,7 @@
 
 namespace fs = std::filesystem;
 
-std::vector<std::pair<std::string, std::string>>
+inline std::vector<std::pair<std::string, std::string>>
 find_test_files(const std::string &task_dir) {
   std::vector<std::pair<std::string, std::string>> result;
   std::map<int, std::string> inputs, outputs;
@@ -36,7 +36,7 @@ find_test_files(const std::string &task_dir) {
   return result;
 }
 
-std::string read_file(const std::string &path) {
+inline std::string read_file(const std::string &path) {
   std::ifstream f(path);
   std::stringstream ss;
   ss << f.rdbuf();
