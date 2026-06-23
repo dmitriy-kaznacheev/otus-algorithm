@@ -21,28 +21,28 @@ BloomFilter::BloomFilter(size_t capacity, double error_rate) {
   bits_.resize(m_, false);
 }
 
-std::vector<size_t> BloomFilter::get_hashes(const std::string &element) const {
+BloomFilter::HashPair BloomFilter::hash_pair(const std::string &element) const {
   std::hash<std::string> hasher;
-  size_t h1 = hasher(element);
-  size_t h2 = hasher(element + "_salt");
-
-  // генерирует k_ индексов через double hashing:
-  std::vector<size_t> hashes(k_);
-  std::generate_n(hashes.begin(), k_,
-                  [&, i = 0]() mutable { return (h1 + i++ * h2) % m_; });
-  return hashes;
+  return {hasher(element), hasher(element + "_salt")};
 }
 
 void BloomFilter::insert(const std::string &element) {
-  auto hashes = get_hashes(element);
-  std::for_each(hashes.begin(), hashes.end(),
-                [this](size_t idx) { bits_[idx] = true; });
+  auto [h1, h2] = hash_pair(element);
+  for (size_t i = 0; i < k_; ++i) {
+    size_t idx = (h1 + i * h2) % m_;
+    bits_[idx] = true;
+  }
 }
 
 bool BloomFilter::contains(const std::string &element) const {
-  auto hashes = get_hashes(element);
-  return std::all_of(hashes.begin(), hashes.end(),
-                     [this](size_t idx) { return bits_[idx]; });
+  auto [h1, h2] = hash_pair(element);
+  for (size_t i = 0; i < k_; ++i) {
+    size_t idx = (h1 + i * h2) % m_;
+    if (!bits_[idx]) {
+      return false;
+    }
+  }
+  return true;
 }
 
 } // namespace bf

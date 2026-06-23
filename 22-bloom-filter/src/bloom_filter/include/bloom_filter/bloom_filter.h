@@ -17,7 +17,11 @@ public:
   size_t hash_count() const { return k_; }
 
 private:
-  std::vector<size_t> get_hashes(const std::string &element) const;
+  struct HashPair {
+    size_t h1;
+    size_t h2;
+  };
+  HashPair hash_pair(const std::string &element) const;
 
 private:
   size_t m_; // размер битового массива
